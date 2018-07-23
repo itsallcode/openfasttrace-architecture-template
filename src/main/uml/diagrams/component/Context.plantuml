@@ -1,0 +1,13 @@
+@startuml
+!include ../clean.skin
+
+!include ../../actors/Customer.plantuml
+!include ../../actors/MachineMaintainer.plantuml
+
+!include ../../nodes/OftAutoYummy.plantuml
+!include ../../nodes/PaymentProvider.plantuml
+
+OftAutoYummyNode -u- "*" Customer
+OftAutoYummyNode -d- "*" MachineMaintainer
+OftAutoYummyNode -r- "1..*" PaymentProviderNode
+@enduml
