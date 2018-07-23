@@ -17,46 +17,21 @@ h1, h2, h3, h4 {
   text-decoration-line: none;
 }
 
-h1:before {
-  counter-increment: section;
-  content: counter(section) " ";
-}
-
 h1 {
-  counter-reset: sub-section;
-  font-size: 20px;
+  font-size: 30px;
   border-bottom: 1px solid lightgrey;
 }
 
-h2:before {
-  counter-increment: sub-section;
-  content: counter(section) "." counter(sub-section) " ";
-}
-
 h2 {
-  counter-reset: composite;
-  font-size: 18px;
-}
-
-h3:before {
-  counter-increment: composite;
-  content: counter(section) "." counter(sub-section) "."
-    counter(composite) " ";
+  font-size: 25px;
 }
 
 h3 {
-  counter-reset: detail;
-  font-size: 16px;
-}
-
-h4:before {
-  counter-increment: detail;
-  content: counter(section) "." counter(sub-section) "."
-    counter(composite) "." counter(detail) " ";
+  font-size: 20px;
 }
 
 h4 {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 li {
@@ -78,7 +53,13 @@ h6 + p > code:first-of-type {
   color: grey;
   border-bottom: 1px dotted lightgrey;
   text-align: right;
-  width: 100%;
+  width: 100%; 
   position: relative;
   top: -2.5em;
+}
+
+blockquote {
+  color: darkviolet;
+  border-left: 1px solid darkviolet;
+  padding-left: 1em;
 }

@@ -48,6 +48,7 @@ For a list of OFTAutoYummi's stakeholder contacts and their responsibilities ple
 The main audience for this software architecture are persons responsible for the design and implementation of the [building blocks](building_blocks.md). They have to base their detailed designs on the requirements stated in this document. 
 
 Recommended reading:
+
 * Introduction
 * [Context](context.md)
 * [Constraints](constraints.md)
@@ -62,11 +63,13 @@ Recommended reading:
 While project managers will usually not dive into the technical details of the system architecture, they still need to at least know the general 
 
 Recommended reading:
+
 * Introduction
 * [Context](context.md)
 * [Risks](risks.md)
 
 Chapters that might also be interesting for this role:
+
 * [Constraints](constraints.md)
 * [Design Decisions](design_decisions.md)
 
@@ -75,11 +78,13 @@ Chapters that might also be interesting for this role:
 Quality Engineers are responsible for making sure the defined quality standards of the project are adhered to. They do not usually dig into the details of the architectural requirements. More likely they check whether the tracing chain is intact and otherwise focus on the quality goals.
 
 Recommended reading:
+
 * Introduction
 * [Quality Scenarios](quality_scenarios.md)
 * [Risks](risks.md)
 
 Chapters that might also be interesting for this role:
+
 * [Context](context.md)
 * [Building Block View](building_blocks)
 * [Risks](risks.md)
@@ -89,6 +94,7 @@ Chapters that might also be interesting for this role:
 Testers are all persons testing the system. This role is also very often assumed by [software developers](#software-developers) and [quality engineers](#quality-engineers). E.g. each software developer writing a unit test is a tester at that moment. Testers need to understand how the system works.
 
 Recommended reading:
+
 * Introduction
 * [Context](context.md)
 * [Constraints](constraints.md)
@@ -102,6 +108,7 @@ Recommended reading:
 Operators are responsible for installing, configuring, running and monitoring the system. Especially in the case of a DevOps organization this role is assumed by [software developers](#software-developers).
 
 Recommended reading:
+
 * Introduction
 * [Context](context.md)
 * [Building Block View](building_blocks)
