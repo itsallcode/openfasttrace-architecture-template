@@ -1,0 +1,3 @@
+@startuml
+node "PasteFactory" <<external>> as PasteFactoryNode
+@enduml

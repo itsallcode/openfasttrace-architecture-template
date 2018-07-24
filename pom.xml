@@ -18,6 +18,36 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>com.github.jeluard</groupId>
+        <artifactId>plantuml-maven-plugin</artifactId>
+        <version>1.2</version>
+        <executions>
+          <execution>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <sourceFiles>
+            <directory>${basedir}/src/main/resources/uml/diagrams</directory>
+            <includes>
+              <include>**/*.plantuml</include>
+            </includes>
+          </sourceFiles>
+          <format>svg</format>
+          <outputDirectory>${basedir}/target/html/uml</outputDirectory>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>net.sourceforge.plantuml</groupId>
+            <artifactId>plantuml</artifactId>
+            <version>8059</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
         <groupId>com.ruleoftech</groupId>
         <artifactId>markdown-page-generator-plugin</artifactId>
         <version>2.1.0</version>
@@ -35,52 +65,22 @@
           <inputFileExtensions>md, markdown</inputFileExtensions>
           <inputEncoding>UTF-8</inputEncoding>
           <outputEncoding>UTF-8</outputEncoding>
-          <headerHtmlFile>${project.basedir}/src/main/resources/html/header.html</headerHtmlFile>
+          <headerHtmlFile>${basedir}/src/main/resources/html/header.html</headerHtmlFile>
           <copyDirectories>css</copyDirectories>
           <transformRelativeMarkdownLinks>true</transformRelativeMarkdownLinks>
         </configuration>
       </plugin>
-      <!--  plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>license-maven-plugin</artifactId>
-        <version>1.16</version>
-        <configuration>
-          <verbose>false</verbose>
-          <detail>true</detail>
-          <licenseName>cc-by-4.0</licenseName>
-          <licenseResolver>${project.basedir}/src/license</licenseResolver>
-          <organizationName>itsallcode.org</organizationName>
-          <inceptionYear>2018</inceptionYear>
-          <excludes>
-          </excludes>
-          <failOnMissingHeader>true</failOnMissingHeader>
-          <failIfWarning>true</failIfWarning>
-          <failOnNotUptodateHeader>true</failOnNotUptodateHeader>
-          <encoding>UTF-8</encoding>
-          <dryRun>false</dryRun>
-        </configuration>
-        <executions>
-          <execution>
-            <id>check-file-header</id>
-            <goals>
-              <goal>check-file-header</goal>
-            </goals>
-            <phase>validate</phase>
-          </execution>
-          <execution>
-            <id>first</id>
-            <goals>
-              <goal>update-file-header</goal>
-            </goals>
-            <phase>process-sources</phase>
-            <configuration>
-              <roots>
-                <root>src/markdown</root>
-              </roots>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin -->
+      <!-- plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>license-maven-plugin</artifactId> 
+        <version>1.16</version> <configuration> <verbose>false</verbose> <detail>true</detail> 
+        <licenseName>cc-by-4.0</licenseName> <licenseResolver>${project.basedir}/src/license</licenseResolver> 
+        <organizationName>itsallcode.org</organizationName> <inceptionYear>2018</inceptionYear> 
+        <excludes> </excludes> <failOnMissingHeader>true</failOnMissingHeader> <failIfWarning>true</failIfWarning> 
+        <failOnNotUptodateHeader>true</failOnNotUptodateHeader> <encoding>UTF-8</encoding> 
+        <dryRun>false</dryRun> </configuration> <executions> <execution> <id>check-file-header</id> 
+        <goals> <goal>check-file-header</goal> </goals> <phase>validate</phase> </execution> 
+        <execution> <id>first</id> <goals> <goal>update-file-header</goal> </goals> 
+        <phase>process-sources</phase> <configuration> <roots> <root>src/markdown</root> 
+        </roots> </configuration> </execution> </executions> </plugin -->
     </plugins>
   </build>
 </project>

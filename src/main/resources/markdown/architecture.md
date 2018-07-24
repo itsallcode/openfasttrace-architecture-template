@@ -31,4 +31,4 @@
 
 > OFT: Note that in comparison to the original arc42 template, we exchanged the order of the chapters [context](context.md) and [constraints](constraints.md) since we feel that understanding the system context is necessary before understanding which constraints apply.
 
-> OFT: the bibliography chapter does not appear in the original arc42 template but turned out to be a good idea nonetheless
+> OFT: the bibliography chapter does not appear in the original arc42 template but turned out to be a good idea nonetheless.

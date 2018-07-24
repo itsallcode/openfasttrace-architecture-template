@@ -1,3 +1,0 @@
-@startuml
-node "PaymentProvider" as PaymentProviderNode
-@enduml
