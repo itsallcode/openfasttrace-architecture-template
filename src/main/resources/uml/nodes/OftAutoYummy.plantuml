@@ -1,0 +1,3 @@
+@startuml
+node "OftAutoYummy" <<external>> as OftAutoYummyNode
+@enduml

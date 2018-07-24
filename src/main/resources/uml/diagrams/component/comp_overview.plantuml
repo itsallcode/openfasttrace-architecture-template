@@ -1,0 +1,22 @@
+@startuml
+!include ../clean.skin
+
+!include ../../components/PasteContainer.plantuml
+!include ../../components/AutoYummyBox.plantuml
+!include ../../components/MachineApplication.plantuml
+!include ../../components/PaymentProvider.plantuml
+!include ../../components/PasteFactoryService.plantuml
+!include ../../components/PaymentProviderAdapter.plantuml
+!include ../../components/AAProvider.plantuml
+!include ../../components/MachineMasterDataProvider.plantuml
+!include ../../components/MachineManager.plantuml
+
+MachineApplication -u-> MachineManager
+MachineManager -r-> PaymentProviderAdapter
+MachineManager -l-> PasteFactoryService
+MachineManager -u-> AAProvider
+MachineManager -u-> MachineMasterDataProvider
+PaymentProviderAdapter -d-> PaymentProvider
+MachineApplication -d-> "*" PasteContainer
+MachineApplication -d-> AutoYummyBox
+@enduml

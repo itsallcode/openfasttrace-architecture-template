@@ -1,0 +1,3 @@
+@startuml
+actor "Mechatronic\nTechnician" <<external>> as Technician
+@enduml
