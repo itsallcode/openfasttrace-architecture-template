@@ -1,0 +1,3 @@
+@startuml
+component PasteContainer <<external>> <<hardware>>
+@enduml

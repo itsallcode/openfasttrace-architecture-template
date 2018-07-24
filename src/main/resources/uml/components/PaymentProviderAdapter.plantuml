@@ -1,0 +1,3 @@
+@startuml
+component PaymentProviderAdapter
+@enduml

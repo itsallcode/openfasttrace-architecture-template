@@ -1,0 +1,3 @@
+@startuml
+component MachineApplication [[../../building_blocks/MachineApplication.html]]
+@enduml

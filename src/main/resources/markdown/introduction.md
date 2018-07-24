@@ -8,13 +8,27 @@ OFTAutoYummi uses a backend connection via the Internet to report fill level of 
 
 Check [System Scope and Context](context.md) for an overview of the systems connections to external actors and neighboring systems.
 
+## About This Document
+
+### Target Audience
+
+The target audience are persons involved with the construction of the system, technical decisions and quality assurance. See section ["Stakeholders"](#stakeholders) for more details. 
+
+### Notational Conventions
+
+Requirements in this document are written in "Requirment enhanced Markdown format" which is the native specification format of [OpenFastTrace (OFT)](https://github.com/itsallcode/openfasttrace). If you want to learn more about this format please check the [OpenFastTrace User Guide](https://github.com/itsallcode/openfasttrace/blob/master/doc/user_guide.md).
+
+Using this format allows you to scan the requirement chain using OFT to see if all requirements from the user-level [System Requirement Specification (SRS)](bibliography.md#srs) are covered.
+
+The name part of the requirement IDs contains the prefix `ayb.` (for "AutoYummyBox") in order to avoid ID collisions when the specification is used in a wider scope cross-project. 
+
 ## Requirement Overview
 
 > OFT: We recommend that you reference the system requirements specification (SRS) of your project here. Repeating the user-level requirements would break the single-source principle &mdash; aka. "don't repeat yourself (DRY)".
 
 > OFT: Generally speaking though the arc42 template contains this section, we do recommend to keep these requirements in a separate document since the life cycle and responsible persons are different for system requirements and system architecture.
 
-See [OFTAutoYummy System Requirement Specification](../bibliography.md#SRS)
+See [OFTAutoYummy System Requirement Specification](../bibliography.md#srs)
 
 ## Quality Goals
 
@@ -39,7 +53,7 @@ This section list the target audience of the system architecture and their inter
 
 > OFT: Hint: always use plural when referring to roles. This keeps your specifications gender-neutral especially when using pronouns. 
 
-For a list of OFTAutoYummi's stakeholder contacts and their responsibilities please refer to the [OAY-ORGA](../bibilography.md#OAY-ORGA).
+For a list of OFTAutoYummi's stakeholder contacts and their responsibilities please refer to the [OAY-ORGA](../bibilography.md#oay-orga).
 
 > OFT: Usually only certain chapters are interesting for an individual project role. You can help your readers finding the relevant information more quickly by listing the chapters they should read.
 
