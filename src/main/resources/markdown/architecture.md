@@ -25,7 +25,7 @@
 8. [Cross-cutting Concerns](concerns.md)
 9. [Design Decisions](design_decisions.md)
 10. [Quality Scenarios](quality_scenarios.md)
-11. [Risks](risks/risks.md)
+11. [Risks](risks.md)
 12. [Glossary](glossary.md)
 13. [Bibliography](bibliography.md)
 

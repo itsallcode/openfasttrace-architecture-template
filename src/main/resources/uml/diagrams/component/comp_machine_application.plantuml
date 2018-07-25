@@ -33,7 +33,14 @@ package org.itsallcode {
 !include ../../components/http/HttpClient.plantuml
 !include ../../components/foodprinter/PasteContainer.plantuml
 !include ../../components/foodprinter/FoodPrinter.plantuml
-!include ../../components/payment/CreditCardReader.plantuml
+component CreditCardReader <<external>> <<hardware>> {
+	component "WrigglyWombatHttpClient" <<external>> as WombatHttpClient
+}
+note "We keep the two embedded\nHTTP client instances aligned." as N1
+
+N1 .r. HttpClient
+N1 .l. WombatHttpClient
+
 !include ../../components/payment/PaymentClient.plantuml
 !include ../../interfaces/payment/CreditCardReaderIF.plantuml
 !include ../../interfaces/payment/PaymentClientIF.plantuml
@@ -42,10 +49,10 @@ package org.itsallcode {
 FoodPrinter -d- FoodPrinterIF
 PasteContainer -d- PasteContainerIF
 CreditCardReader -u- CreditCardReaderIF
-PaymentClient -u- PaymentClientIF
-HttpClient -l- HttpClientIF
+PaymentClient -l- PaymentClientIF
+HttpClient -u- HttpClientIF
 CreditCardConnector -d-( CreditCardReaderIF
 PaymentHandler -d-( PaymentClientIF
 PaymentClient -r-( HttpClientIF
-MachineBackendConnector --( HttpClientIF
+
 @enduml
