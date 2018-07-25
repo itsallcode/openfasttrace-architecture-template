@@ -1,0 +1,51 @@
+@startuml
+!include ../clean.skin
+
+package org.itsallcode {
+	package vendingmachine {
+		!include ../../components/vendingmachine/MachineController.plantuml
+		!include ../../components/vendingmachine/UserInterface.plantuml
+		!include ../../components/vendingmachine/MachineBackendConnector.plantuml
+		MachineController -r-> MachineBackendConnector
+	}
+	
+	package foodprinter {
+		!include ../../components/foodprinter/PasteContainerConnector
+		!include ../../components/foodprinter/FoodPrinterController
+		!include ../../interfaces/foodprinter/FoodPrinterIF.plantuml
+		!include ../../interfaces/foodprinter/PasteContainerIF.plantuml
+		FoodPrinterController -u-( FoodPrinterIF
+		PasteContainerConnector -u-( PasteContainerIF
+	}
+	
+	package payment {
+		!include ../../components/payment/CreditCardConnector.plantuml
+		!include ../../components/payment/PaymentHandler.plantuml
+		PaymentHandler -l-> CreditCardConnector
+	}
+	
+	UserInterface -r-> MachineController
+	MachineController -u-> FoodPrinterController
+	MachineController -u-> PasteContainerConnector
+	MachineController -d-> PaymentHandler
+}
+
+!include ../../components/http/HttpClient.plantuml
+!include ../../components/foodprinter/PasteContainer.plantuml
+!include ../../components/foodprinter/FoodPrinter.plantuml
+!include ../../components/payment/CreditCardReader.plantuml
+!include ../../components/payment/PaymentClient.plantuml
+!include ../../interfaces/payment/CreditCardReaderIF.plantuml
+!include ../../interfaces/payment/PaymentClientIF.plantuml
+!include ../../interfaces/http/HttpClientIF.plantuml
+
+FoodPrinter -d- FoodPrinterIF
+PasteContainer -d- PasteContainerIF
+CreditCardReader -u- CreditCardReaderIF
+PaymentClient -u- PaymentClientIF
+HttpClient -l- HttpClientIF
+CreditCardConnector -d-( CreditCardReaderIF
+PaymentHandler -d-( PaymentClientIF
+PaymentClient -r-( HttpClientIF
+MachineBackendConnector --( HttpClientIF
+@enduml

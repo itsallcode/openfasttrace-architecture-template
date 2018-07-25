@@ -1,6 +1,12 @@
 @startuml
 skinparam monochrome true
-skinparam style strictuml
+skinparam Component {
+  FontColor<<external>> DimGrey
+  StereotypeFontColor<<external>> DimGrey
+  BackgroundColor<<external>> #fcfcfc
+}
+
+!pragma horizontalLineBetweenDifferentPackageAllowed
 
 hide empty methods
 hide empty attributes

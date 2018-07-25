@@ -1,7 +1,7 @@
 @startuml
 !include ../clean.skin
 
-!include ../../components/PasteContainer.plantuml
+!include ../../components/foodprinter/PasteContainer.plantuml
 !include ../../components/AutoYummyBox.plantuml
 !include ../../components/MachineApplication.plantuml
 !include ../../components/PaymentProvider.plantuml

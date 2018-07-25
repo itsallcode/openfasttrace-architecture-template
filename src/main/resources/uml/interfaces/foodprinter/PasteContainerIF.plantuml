@@ -1,0 +1,3 @@
+@startuml
+interface "PasteContainer" as PasteContainerIF <<interface>>
+@enduml

@@ -68,6 +68,7 @@
           <headerHtmlFile>${basedir}/src/main/resources/html/header.html</headerHtmlFile>
           <copyDirectories>css</copyDirectories>
           <transformRelativeMarkdownLinks>true</transformRelativeMarkdownLinks>
+          <pegdownExtensions>TABLES,TOC</pegdownExtensions>
         </configuration>
       </plugin>
       <!-- plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>license-maven-plugin</artifactId> 
