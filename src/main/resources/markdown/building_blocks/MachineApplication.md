@@ -1,4 +1,4 @@
-# MachineApplication
+### MachineApplication
 
 > OFT: Whether or not you go into more detail here in the architecture depends on multiple factors.
 
@@ -28,7 +28,7 @@ The CreditCardReader is a self-sufficient standard component that only requires 
 
 > OFT: This also gives us the opportunity to demonstrate what you should do if you don't own an interface you depend on. Of course an external HTTP client brings its own interface, but we have the MachineBackendConnector component in place where adapt if necessary. Same is true for the CreditCardConnector and PaymentHanlder.
 
-## PasteContainer
+#### PasteContainer
 `arch~ayb.pastecontainer~1`
 
 A PasteCoPaymentHandlerardware component that contains one of the pastes that serve as raw material for the dishes AutoYummiBox serves. It has a controller built in that can identify the contents and fill grade.
@@ -41,7 +41,7 @@ Needs: dsn
 
 Tags: PasteContainer
 
-## FoodPrinter
+#### FoodPrinter
 `arch~ayb.foodprinter~1`
 
 The FoodPrinter is a hardware component that is feed with [pastes](glossary.md#paste) and prints a dish out of them.

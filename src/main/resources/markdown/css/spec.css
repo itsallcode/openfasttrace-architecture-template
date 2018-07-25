@@ -63,3 +63,37 @@ blockquote {
   border-left: 1px solid darkviolet;
   padding-left: 1em;
 }
+
+div#TOC ~ * {
+	width: calc(100% - 30em);
+}
+
+div#TOC {
+	position: fixed;
+	top: 0px;
+	height: 100%;
+	width: 28em;
+	margin-left: calc(100% - 30em);
+	overflow-y: scroll;
+	box-shadow: 5px 0px 20px #888888;
+}
+
+div#TOC ul {
+	list-style-type: none;
+	padding-left: 1em;
+}
+
+div#TOC li {
+  padding-bottom: 0.25em;
+  padding-top: 0.25em;
+}
+
+div#TOC a {
+	text-decoration: none;
+	color: dimgray;
+}
+
+div#TOC a:hover {
+	text-decoration: underline;
+	color: dimgray;
+}
