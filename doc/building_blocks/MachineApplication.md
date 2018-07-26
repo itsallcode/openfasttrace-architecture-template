@@ -12,7 +12,7 @@ This section contains the internal component breakdown of the MachineApplication
 
 The breakdown is kept rough intentionally to avoid excessive information duplication with the detailed design documents.
 
-![MachineApplication composition](../uml/component/comp_machine_application.svg "MachineApplication composition")
+![MachineApplication composition](uml/component/comp_machine_application.svg "MachineApplication composition")
 
 > OFT: The main purpose of the above diagram in the context of this architecture example is to demonstrate a variety of component and package relationships. Explaining the structure of the product is one of if not the most important job of a architecture.
 

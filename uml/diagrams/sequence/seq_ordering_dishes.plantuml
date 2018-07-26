@@ -1,0 +1,27 @@
+@startuml
+!include seq.skin
+
+!include ../../actors/Customer.plantuml
+!include ../../participants/MachineApplication.plantuml
+!include ../../participants/foodprinter/PasteContainer.plantuml
+
+Customer -> MachineApplication : listDishes()
+activate MachineApplication
+
+loop each pasteContainer
+	MachineApplication -> PasteContainer : getPasteType()
+	activate PasteContainer
+	PasteContainer -->> MachineApplication : pasteType
+	deactivate PasteContainer
+	MachineApplication -> PasteContainer : getFillLevel()
+	activate PasteContainer
+	PasteContainer -->> MachineApplication : fillLevel
+	deactivate PasteContainer
+end loop
+
+MachineApplication -> MachineApplication : calculateAvailableDishes(pasteInventory)
+activate MachineApplication
+deactivate MachineApplication
+MachineApplication -->> Customer : dishList 
+deactivate MachineApplication
+@enduml

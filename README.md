@@ -1,5 +1,6 @@
 # openfasttrace-architecture-template
-Template for system and software architecture done with OpenFastTrace
+
+Template for system and software architecture done with OpenFastTrace.
 
 ## Acknowledgments
 
@@ -31,27 +32,36 @@ The directory structure below shows the most important parts of the project layo
 ```
 project root
   |
-  |-- doc                 Markdown sources of the specification
-  |    `-- css            CSS for the HTML output
+  |-- doc                   Markdown sources of the specification
+  |    |-- css              CSS for the HTML output
+  |   ...
   |
-  |-- uml                 PlantUML sources for the UML model
+  |-- uml                    PlantUML sources for the UML model
   |    |-- actors         
   |    |-- classes
-  |    |-- diagrams       Sources for the UML diagrams
-  |    |-- ...
+  |    |-- diagrams          Sources for the UML diagrams
+  |    |     |-- activity
+  |    |     |-- class
+  |    |    ...
+  |   ...
   |
   |-- target
   |    |-- html           Generated HTML output of the specification
-  |    `-- pdf            Generated PDF
-  |
-  `-- pom.xml             Maven project configuration
+  |    '-- pdf            Generated PDF
+ ...
+  '-- pom.xml             Maven project configuration
 ```
+
+**&#9888; Be careful not to accidentally edit files in the target directory. It happens to us now and then and is each time a source of annoyance since the changes are gone with the next build run.** 
+
 
 ## Authoring
 
 For authoring any text editor will work.
 
-We recommend using [Eclipse](https://eclipse.org), the built-in WikiText editor for [Markdown](https://daringfireball.net/projects/markdown/) and the [Eclipse PlantUML plug-in](http://plantuml.com/eclipse).  
+We recommend using [Eclipse](https://eclipse.org), the built-in WikiText editor for [Markdown](https://daringfireball.net/projects/markdown/) and the [Eclipse PlantUML plug-in](http://plantuml.com/eclipse).
+
+Read the [OpenFastTrace User Guide](https://github.com/itsallcode/openfasttrace/blob/master/doc/user_guide.md) to learn how to create specifications in the OFT Markdown format.
 
 ## Building
 
@@ -76,7 +86,7 @@ To configure the build variables like document name and version number change th
 
 The `spec.files` property must contain all files you want to render into the specification in the order in which that must be concatenated. 
 
-**If you introduce new files, don't forget to list them there!**
+**&#9888; If you introduce new files, don't forget to list them there!**
 
 ## Build Dependencies
 

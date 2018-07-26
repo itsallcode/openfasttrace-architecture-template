@@ -21,15 +21,15 @@
     <spec.version>1.0.0</spec.version>
     <spec.files>architecture.md introduction.md context.md
       solution_strategy.md building_blocks.md
-      building_blocks/MachineApplication.md design_decisions.md risks.md
+      building_blocks/MachineApplication.md runtime.md runtime/ordering_dishes.md runtime/preparing_dishes.md runtime/paying_with_credit_card.md design_decisions.md risks.md
       glossary.md bibliography.md</spec.files>
     <!-- Do not change the properties below -->
     <spec.source.directory>${project.basedir}/doc</spec.source.directory>
-    <spec.source.css.directory>${project.basedir}/doc/css</spec.source.css.directory>
+    <spec.source.css.directory>${spec.source.directory}/css</spec.source.css.directory>
     <spec.model.directory>${project.basedir}/uml</spec.model.directory>
-    <spec.build.html.directory>${project.build.directory}/html</spec.build.html.directory>
+    <spec.build.html.directory>${project.build.directory}</spec.build.html.directory>
     <spec.build.uml.directory>${project.build.directory}/uml</spec.build.uml.directory>
-    <spec.build.css.directory>${project.build.directory}/html/css</spec.build.css.directory>
+    <spec.build.css.directory>${project.build.directory}/css</spec.build.css.directory>
   </properties>
   <build>
     <plugins>

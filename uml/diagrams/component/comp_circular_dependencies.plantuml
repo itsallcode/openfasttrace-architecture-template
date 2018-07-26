@@ -1,5 +1,5 @@
 @startuml
-!include ../clean.skin
+!include comp.skin
 
 component A
 component B

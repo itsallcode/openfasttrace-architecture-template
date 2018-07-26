@@ -1,5 +1,5 @@
 @startuml
-!include ../clean.skin
+!include comp.skin
 
 !include ../../components/foodprinter/PasteContainer.plantuml
 !include ../../components/AutoYummyBox.plantuml

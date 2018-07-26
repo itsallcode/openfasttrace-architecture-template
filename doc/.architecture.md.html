@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>/home/sebastian/git/openfasttrace-architecture-template/.README.md.html</title>
+<title>/home/sebastian/git/openfasttrace-architecture-template/doc/.architecture.md.html</title>
 
 
 <style type="text/css">
@@ -639,102 +639,48 @@ function setDocumentScrollTop(ypos)
 
 </head>
 <body class="markdown-body">
-<h1> <a id="openfasttrace-architecture-template" class="anchor" href="#openfasttrace-architecture-template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>openfasttrace-architecture-template</h1> 
-<p>Template for system and software architecture done with OpenFastTrace</p> 
-<h2> <a id="acknowledgments" class="anchor" href="#acknowledgments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgments</h2> 
-<p>The architecture documents structure is based the the <a href="https://arc42.de" rel="nofollow">arc42</a> architecture template by Dr. Gernot Starke, Dr. Peter Hruschka.</p> 
-<p>The arc42 template is offered under a Creative Commons Attributions license (<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="nofollow">CC-BY-SA</a>) which requires to keep attributions in all derived works. We kindly ask you to keep the license headers in the Markdown files for that reasons.</p> 
-<h2> <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2> 
-<h3> <a id="on-debian--ubuntu-linux" class="anchor" href="#on-debian--ubuntu-linux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>On Debian / Ubuntu Linux</h3> 
-<p>If you only want to render the document to you need to install <a href="https://pandoc.org" rel="nofollow">Pandoc</a>.</p> 
-<div class="highlight highlight-source-shell">
- <pre>apt install pandoc</pre>
-</div> 
-<p>Since Pandoc renders PDFs with the Help of <code>pdflatex</code> you also need to install a appropriate TeX distribution. On Linux the <a href="https://tug.org/texlive/" rel="nofollow">TeX Live</a> packages are typically part of the standard repositories.</p> 
-<div class="highlight highlight-source-shell">
- <pre>apt install pandoc texlive-latex-base</pre>
-</div> 
-<h2> <a id="project-layout" class="anchor" href="#project-layout" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Project Layout</h2> 
-<p>The directory structure below shows the most important parts of the project layout and what they mean.</p> 
-<pre><code>project root
-  |
-  |-- doc                 Markdown sources of the specification
-  |    `-- css            CSS for the HTML output
-  |
-  |-- uml                 PlantUML sources for the UML model
-  |    |-- actors         
-  |    |-- classes
-  |    |-- diagrams       Sources for the UML diagrams
-  |    |-- ...
-  |
-  |-- target
-  |    |-- html           Generated HTML output of the specification
-  |    `-- pdf            Generated PDF
-  |
-  `-- pom.xml             Maven project configuration
-</code></pre> 
-<h2> <a id="authoring" class="anchor" href="#authoring" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authoring</h2> 
-<p>For authoring any text editor will work.</p> 
-<p>We recommend using <a href="https://eclipse.org" rel="nofollow">Eclipse</a>, the built-in WikiText editor for <a href="https://daringfireball.net/projects/markdown/" rel="nofollow">Markdown</a> and the <a href="http://plantuml.com/eclipse" rel="nofollow">Eclipse PlantUML plug-in</a>.</p> 
-<h2> <a id="building" class="anchor" href="#building" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building</h2> 
-<h3> <a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration</h3> 
-<p>You can find the configuration for the build in the <a href="pom.xml">Maven <code>pom.xml</code> file</a> of this project.</p> 
-<p>To configure the build variables like document name and version number change the properties:</p> 
-<div class="highlight highlight-text-xml">
- <pre>&lt;<span class="pl-ent">project</span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>http://maven.apache.org/POM/4.0.0<span class="pl-pds">&quot;</span></span>
-  &lt;!-- ... --&gt;
-  &lt;<span class="pl-ent">properties</span>&gt;
-    &lt;<span class="pl-ent">spec</span>.name&gt;AutoYummiBox - Software Architectural Design&lt;/<span class="pl-ent">spec</span>.name&gt;
-    &lt;<span class="pl-ent">spec</span>.filename&gt;SwAD-AutoYummiBox&lt;/<span class="pl-ent">spec</span>.filename&gt;
-    &lt;<span class="pl-ent">spec</span>.version&gt;1.0.0&lt;/<span class="pl-ent">spec</span>.version&gt;
-    &lt;<span class="pl-ent">spec</span>.files&gt;architecture.md introduction.md ... bibliography.md&lt;/<span class="pl-ent">spec</span>.files&gt;
-  &lt;/<span class="pl-ent">properties</span>&gt;
-  <span class="pl-c"><span class="pl-c">&lt;!--</span> ... <span class="pl-c">--&gt;</span></span>
-&lt;/<span class="pl-ent">project</span>&gt;</pre>
-</div> 
-<p>The <code>spec.files</code> property must contain all files you want to render into the specification in the order in which that must be concatenated.</p> 
-<p><strong>If you introduce new files, don't forget to list them there!</strong></p> 
-<h2> <a id="build-dependencies" class="anchor" href="#build-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Build Dependencies</h2> 
-<table> 
- <thead> 
-  <tr> 
-   <th>Dependency</th> 
-   <th>Purpose</th> 
-   <th>License</th> 
-  </tr> 
- </thead> 
- <tbody> 
-  <tr> 
-   <td>[Copy resources Maven plugin)(<a href="https://maven.apache.org/plugins/maven-resources-plugin/" rel="nofollow">https://maven.apache.org/plugins/maven-resources-plugin/</a>)</td> 
-   <td>Copy original files</td> 
-   <td><a href="https://maven.apache.org/plugins/maven-resources-plugin/" rel="nofollow">https://maven.apache.org/plugins/maven-resources-plugin/</a></td> 
-  </tr> 
-  <tr> 
-   <td><a href="https://www.mojohaus.org/exec-maven-plugin/" rel="nofollow">Exec Maven plugin</a></td> 
-   <td>Running Pandoc</td> 
-   <td><a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="nofollow">Apache License 2.0</a></td> 
-  </tr> 
-  <tr> 
-   <td><a href="http://www.mojohaus.org/license-maven-plugin/" rel="nofollow">License Maven plugin</a></td> 
-   <td>Adding license headers</td> 
-   <td><a href="http://www.gnu.org/licenses/quick-guide-gplv3.html" rel="nofollow">GPL v3.0</a></td> 
-  </tr> 
-  <tr> 
-   <td><a href="https://maven.apache.org/" rel="nofollow">Maven</a></td> 
-   <td>Build</td> 
-   <td><a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="nofollow">Apache License 2.0</a></td> 
-  </tr> 
-  <tr> 
-   <td><a href="https://pandoc.org" rel="nofollow">Pandoc</a></td> 
-   <td>Document rendering</td> 
-   <td><a href="http://www.gnu.org/licenses/quick-guide-gplv3.html" rel="nofollow">GPL v3.0</a></td> 
-  </tr> 
-  <tr> 
-   <td><a href="https://github.com/jeluard/maven-plantuml-plugin">PlantUML Maven plugin</a></td> 
-   <td>Diagram rendering</td> 
-   <td><a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="nofollow">Apache License 2.0</a></td> 
-  </tr> 
- </tbody> 
-</table>
+<p>OFTAutoYummy - System Architecture</p> 
+<blockquote> 
+ <p>OFT: In this system architecture template we are discussing the design of a fictional product &quot;OFTAutoYummy&quot; that synthesizes meals from raw materials and is basically a 3D printer for ready-made food. The example is intended to demonstrate architectural considerations of a project that has both hardware and software parts.</p> 
+</blockquote> 
+<blockquote> 
+ <p>OFT: The structure of the architectural template is based on the arc42 template (<a href="https://www.arc42.de" rel="nofollow">https://www.arc42.de</a>) by Dr. Gernot Starke and Dr. Peter Hruschka. Both, the arc42 template and this template are licensed under the <a href="../.LICENSE.md.html">Creative-Commons-BY license</a>.</p> 
+</blockquote> 
+<blockquote> 
+ <p>OFT: In order to allow for requirement tracing, the template uses the &quot;Requirement-enhanced Markdown format&quot; defined by the <a href="https://github.com/itsallcode/openfasttrace">OpenFastTrace</a> project. The examples and additions also come from this project.</p> 
+</blockquote> 
+<blockquote> 
+ <p>OFT: Comments are typeset as block quotes in this document and lead in by &quot;OFT:&quot; so that you can easily remove them with &quot;search &amp; replace&quot;.</p> 
+</blockquote> 
+<blockquote> 
+ <p>OFT: The chapters of this document are contained in separate files. We recommend this especially for larger projects where multiple persons will work on parts of the document in parallel. This way the merging overhead is lower. Also this keeps the files from growing to sizes that are unmanageable.</p> 
+</blockquote> 
+<blockquote> 
+ <p>OFT: For large chapters like the &quot;Runtime&quot; we recommend splitting the chapter in subsections that you keep in folder named after the chapter.</p> 
+</blockquote> 
+<blockquote> 
+ <p>OFT: Glossary and bibliography do not get sub-folders since they usually do not grow to a size where they need to be split down further. Also this makes generating and referencing them easier.</p> 
+</blockquote> 
+<ol> 
+ <li><a href=".introduction.md.html">Introduction</a></li> 
+ <li><a href=".context.md.html">Context</a></li> 
+ <li><a href=".constraints.md.html">Constraints</a></li> 
+ <li><a href=".solution_strategy.md.html">Solution strategy</a></li> 
+ <li><a href=".building_blocks.md.html">Building blocks</a></li> 
+ <li><a href=".runtime.md.html">Runtime</a></li> 
+ <li><a href=".deployment.md.html">Deployment</a></li> 
+ <li><a href=".concerns.md.html">Cross-cutting Concerns</a></li> 
+ <li><a href=".design_decisions.md.html">Design Decisions</a></li> 
+ <li><a href=".quality_scenarios.md.html">Quality Scenarios</a></li> 
+ <li><a href=".risks.md.html">Risks</a></li> 
+ <li><a href=".glossary.md.html">Glossary</a></li> 
+ <li><a href=".bibliography.md.html">Bibliography</a></li> 
+</ol> 
+<blockquote> 
+ <p>OFT: Note that in comparison to the original arc42 template, we exchanged the order of the chapters <a href=".context.md.html">context</a> and <a href=".constraints.md.html">constraints</a> since we feel that understanding the system context is necessary before understanding which constraints apply.</p> 
+</blockquote> 
+<blockquote> 
+ <p>OFT: the bibliography chapter does not appear in the original arc42 template but turned out to be a good idea nonetheless.</p> 
+</blockquote>
 </body>
 </html>

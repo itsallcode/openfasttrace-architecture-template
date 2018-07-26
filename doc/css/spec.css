@@ -97,3 +97,12 @@ div#TOC a:hover {
 	text-decoration: underline;
 	color: dimgray;
 }
+
+p.caption {
+  margin-left: 6em;
+}
+
+p.caption:before{
+  font-weight: bold;
+  content: "Figure: "
+}

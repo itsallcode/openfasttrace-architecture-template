@@ -5,9 +5,4 @@ skinparam Component {
   StereotypeFontColor<<external>> DimGrey
   BackgroundColor<<external>> #fcfcfc
 }
-
-!pragma horizontalLineBetweenDifferentPackageAllowed
-
-hide empty methods
-hide empty attributes
 @enduml
