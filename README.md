@@ -1,6 +1,12 @@
 # openfasttrace-architecture-template
 Template for system and software architecture done with OpenFastTrace
 
+## Installation
+
+```bash
+apt install pandoc texlive-latex-base
+```
+
 ## Build Dependencies
 
 | Dependency                                                                                                | Purpose                | License                            |
