@@ -2,7 +2,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>openfasttrace-architecture-template</groupId>
+  <groupId>org.itsallcode</groupId>
   <artifactId>openfasttrace-architecture-template</artifactId>
   <version>0.1.0</version>
   <scm>
@@ -15,6 +15,19 @@
   <url>https://github.com/itsallcode/openfasttrace</url>
   <name>OpenFastTrace</name>
   <description>Free software requirement tracing suite</description>
+  <properties>
+    <spec.name>AutoYummiBox - Software Architectural Design</spec.name>
+    <spec.filename>SwAD-AutoYummiBox</spec.filename>
+    <spec.version>1.0.0</spec.version>
+    <spec.files>architecture.md introduction.md context.md solution_strategy.md building_blocks.md building_blocks/MachineApplication.md design_decisions.md risks.md glossary.md bibliography.md</spec.files>
+    <!-- Do not change the properties below -->
+    <spec.source.directory>${project.basedir}/doc</spec.source.directory>
+    <spec.source.css.directory>${project.basedir}/doc/css</spec.source.css.directory>
+    <spec.model.directory>${project.basedir}/uml</spec.model.directory>
+    <spec.build.html.directory>${project.build.directory}/html</spec.build.html.directory>
+    <spec.build.uml.directory>${project.build.directory}/uml</spec.build.uml.directory>
+    <spec.build.css.directory>${project.build.directory}/html/css</spec.build.css.directory>
+  </properties>
   <build>
     <plugins>
       <plugin>
@@ -23,6 +36,7 @@
         <version>1.2</version>
         <executions>
           <execution>
+            <id>plantuml</id>
             <phase>process-resources</phase>
             <goals>
               <goal>generate</goal>
@@ -31,45 +45,40 @@
         </executions>
         <configuration>
           <sourceFiles>
-            <directory>${basedir}/src/main/resources/uml/diagrams</directory>
+            <directory>${spec.model.directory}/diagrams</directory>
             <includes>
               <include>**/*.plantuml</include>
             </includes>
           </sourceFiles>
           <format>svg</format>
-          <outputDirectory>${basedir}/target/html/uml</outputDirectory>
+          <outputDirectory>${spec.build.uml.directory}</outputDirectory>
         </configuration>
         <dependencies>
           <dependency>
             <groupId>net.sourceforge.plantuml</groupId>
             <artifactId>plantuml</artifactId>
-            <version>	1.2018.8</version>
+            <version>1.2018.8</version>
           </dependency>
         </dependencies>
       </plugin>
       <plugin>
-        <groupId>com.ruleoftech</groupId>
-        <artifactId>markdown-page-generator-plugin</artifactId>
-        <version>2.1.0</version>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.6.0</version>
         <executions>
           <execution>
-            <phase>process-resources</phase>
+            <id>pandoc</id>
+            <phase>compile</phase>
+            <configuration>
+              <executable>pandoc</executable>
+              <workingDirectory>${spec.source.directory}</workingDirectory>
+              <commandlineArgs>--from=markdown --to=html --toc --number-sections --css=${spec.source.css.directory}/spec.css --output=${spec.build.html.directory}/${spec.filename}.html ${spec.files}</commandlineArgs>
+            </configuration>
             <goals>
-              <goal>generate</goal>
+              <goal>exec</goal>
             </goals>
           </execution>
         </executions>
-        <configuration>
-          <inputDirectory>${project.basedir}/src/main/resources/markdown</inputDirectory>
-          <recursiveInput>true</recursiveInput>
-          <inputFileExtensions>md, markdown</inputFileExtensions>
-          <inputEncoding>UTF-8</inputEncoding>
-          <outputEncoding>UTF-8</outputEncoding>
-          <headerHtmlFile>${basedir}/src/main/resources/html/header.html</headerHtmlFile>
-          <copyDirectories>css</copyDirectories>
-          <transformRelativeMarkdownLinks>true</transformRelativeMarkdownLinks>
-          <pegdownExtensions>TABLES,TOC</pegdownExtensions>
-        </configuration>
       </plugin>
       <!-- plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>license-maven-plugin</artifactId> 
         <version>1.16</version> <configuration> <verbose>false</verbose> <detail>true</detail> 

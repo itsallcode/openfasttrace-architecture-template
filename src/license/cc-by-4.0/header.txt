@@ -1,9 +1,0 @@
-(c) This work is based on the arc42 architecture template <https://www.arc42.de>.
-Created by Dr. Peter Hruschka & Dr. Gernot Starke.
-
-(c) Examples, explanations and extensions from itsallcode.org (https://itsallcode.org).
-Created by Sebastian Bär and Christoph Pirkl.
-
-OpenFastTrace architecture template is licensed under a Creative Commons Attribution 4.0 International License.
-
-You should have received a copy of the license along with this work. If not, see http://creativecommons.org/licenses/by/4.0/
