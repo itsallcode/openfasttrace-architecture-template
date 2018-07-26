@@ -32,24 +32,24 @@ The directory structure below shows the most important parts of the project layo
 ```
 project root
   |
-  |-- doc                   Markdown sources of the specification
-  |    |-- css              CSS for the HTML output
+  |-- doc                      Markdown sources of the specification
+  |    |-- css                 CSS for the HTML output
   |   ...
   |
-  |-- uml                    PlantUML sources for the UML model
+  |-- uml                      PlantUML sources for the UML model
   |    |-- actors         
   |    |-- classes
-  |    |-- diagrams          Sources for the UML diagrams
+  |    |-- diagrams            Sources for the UML diagrams
   |    |     |-- activity
   |    |     |-- class
   |    |    ...
   |   ...
   |
   |-- target
-  |    |-- html           Generated HTML output of the specification
-  |    '-- pdf            Generated PDF
+  |    |-- <spec-name>.html    Generated HTML output of the specification
+  |    '-- <spec-name>.pdf     Generated PDF
  ...
-  '-- pom.xml             Maven project configuration
+  '-- pom.xml                  Maven project configuration
 ```
 
 **&#9888; Be careful not to accidentally edit files in the target directory. It happens to us now and then and is each time a source of annoyance since the changes are gone with the next build run.** 
