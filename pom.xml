@@ -19,7 +19,10 @@
     <spec.name>AutoYummiBox - Software Architectural Design</spec.name>
     <spec.filename>SwAD-AutoYummiBox</spec.filename>
     <spec.version>1.0.0</spec.version>
-    <spec.files>architecture.md introduction.md context.md solution_strategy.md building_blocks.md building_blocks/MachineApplication.md design_decisions.md risks.md glossary.md bibliography.md</spec.files>
+    <spec.files>architecture.md introduction.md context.md
+      solution_strategy.md building_blocks.md
+      building_blocks/MachineApplication.md design_decisions.md risks.md
+      glossary.md bibliography.md</spec.files>
     <!-- Do not change the properties below -->
     <spec.source.directory>${project.basedir}/doc</spec.source.directory>
     <spec.source.css.directory>${project.basedir}/doc/css</spec.source.css.directory>
@@ -30,6 +33,28 @@
   </properties>
   <build>
     <plugins>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${spec.build.css.directory}</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${spec.source.css.directory}</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>com.github.jeluard</groupId>
         <artifactId>plantuml-maven-plugin</artifactId>
@@ -72,7 +97,11 @@
             <configuration>
               <executable>pandoc</executable>
               <workingDirectory>${spec.source.directory}</workingDirectory>
-              <commandlineArgs>--from=markdown --to=html --toc --number-sections --css=${spec.source.css.directory}/spec.css --output=${spec.build.html.directory}/${spec.filename}.html ${spec.files}</commandlineArgs>
+              <commandlineArgs>--from=markdown --to=html --toc
+                --number-sections
+                --css=${spec.source.css.directory}/spec.css
+                --output=${spec.build.html.directory}/${spec.filename}.html
+                ${spec.files}</commandlineArgs>
             </configuration>
             <goals>
               <goal>exec</goal>

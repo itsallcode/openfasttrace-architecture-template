@@ -80,10 +80,11 @@ The `spec.files` property must contain all files you want to render into the spe
 
 ## Build Dependencies
 
-| Dependency                                                                 | Purpose                | License                                                                |
-|----------------------------------------------------------------------------|------------------------|------------------------------------------------------------------------|
-| [Exec Maven plugin](https://www.mojohaus.org/exec-maven-plugin/)           | Running Pandoc         | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
-| [License Maven plugin](http://www.mojohaus.org/license-maven-plugin/)      | Adding license headers | [GPL v3.0](http://www.gnu.org/licenses/quick-guide-gplv3.html)         |
-| [Maven](https://maven.apache.org/)                                         | Build                  | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
-| [Pandoc](https://pandoc.org)                                               | Document rendering     | [GPL v3.0](http://www.gnu.org/licenses/quick-guide-gplv3.html)         |
-| [PlantUML Maven plugin](https://github.com/jeluard/maven-plantuml-plugin)  | Diagram rendering      | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
+| Dependency                                                                              | Purpose                | License                                                                |
+|-----------------------------------------------------------------------------------------|------------------------|------------------------------------------------------------------------|
+| [Copy resources Maven plugin)(https://maven.apache.org/plugins/maven-resources-plugin/) | Copy original files    |https://maven.apache.org/plugins/maven-resources-plugin/                |
+| [Exec Maven plugin](https://www.mojohaus.org/exec-maven-plugin/)                        | Running Pandoc         | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
+| [License Maven plugin](http://www.mojohaus.org/license-maven-plugin/)                   | Adding license headers | [GPL v3.0](http://www.gnu.org/licenses/quick-guide-gplv3.html)         |
+| [Maven](https://maven.apache.org/)                                                      | Build                  | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
+| [Pandoc](https://pandoc.org)                                                            | Document rendering     | [GPL v3.0](http://www.gnu.org/licenses/quick-guide-gplv3.html)         |
+| [PlantUML Maven plugin](https://github.com/jeluard/maven-plantuml-plugin)               | Diagram rendering      | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
