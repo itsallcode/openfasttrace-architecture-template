@@ -1,6 +1,6 @@
 <!--
   #%L
-  OpenFastTrace
+  OpenFastTrace Architecture Template
   %%
   Copyright (C) 2018 itsallcode.org
   %%
@@ -9,6 +9,4 @@
   #L%
   -->
 
-## Paying With Credit Card
-
-> OFT: empty on purpose in this example document.
+# Quality Scenarios

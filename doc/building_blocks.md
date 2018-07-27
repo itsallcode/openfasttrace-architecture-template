@@ -8,6 +8,7 @@
   with modifications and additions from itsallcode.org, licensed under CC-BY-SA 4.0
   #L%
   -->
+
 # Building Block View
 
 > OFT: This chapter is usually every readers favorite. First because it usually contains a lot of pictures, second because it advances the understanding of the system most.

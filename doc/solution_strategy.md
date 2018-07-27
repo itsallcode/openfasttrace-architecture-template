@@ -8,6 +8,7 @@
   with modifications and additions from itsallcode.org, licensed under CC-BY-SA 4.0
   #L%
   -->
+
 # Solution Strategy
 
 > OFT: This chapter is a tricky one. The original arc42 template states that you should outline your main architectural decisions here, for example how you plan to reach your quality goals.

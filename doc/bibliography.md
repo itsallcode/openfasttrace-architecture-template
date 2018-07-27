@@ -8,6 +8,7 @@
   with modifications and additions from itsallcode.org, licensed under CC-BY-SA 4.0
   #L%
   -->
+  
 # Bibliography
 
 > OFT: The bibliography provides an overview over all external document and web site sources that you used when creating this architecture. Make sure to credit the authors.

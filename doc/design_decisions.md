@@ -8,6 +8,7 @@
   with modifications and additions from itsallcode.org, licensed under CC-BY-SA 4.0
   #L%
   -->
+
 # Design Decisions
 
 This section elaborates the most important design decisions. Criteria for whether decisions relevant enough to be discussed here &mdash; as opposed to mentioned in the other chapters of the architecture &mdash; are:

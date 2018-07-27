@@ -8,4 +8,7 @@
   with modifications and additions from itsallcode.org, licensed under CC-BY-SA 4.0
   #L%
   -->
+
 ## Preparing Dishes
+
+> OFT: empty on purpose in this example document.

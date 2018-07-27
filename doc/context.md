@@ -8,6 +8,7 @@
   with modifications and additions from itsallcode.org, licensed under CC-BY-SA 4.0
   #L%
   -->
+
 # System Scope and Context
 
 > OFT: Often you will find the general system context in your system requirement specification (SRS) already. Whether or not to copy that depends on if you prefer to present a mostly self-contained architecture document or to focus on the single-source principle (DRY).

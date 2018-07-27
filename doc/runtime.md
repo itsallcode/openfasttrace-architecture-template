@@ -8,6 +8,7 @@
   with modifications and additions from itsallcode.org, licensed under CC-BY-SA 4.0
   #L%
   -->
+
 # Runtime View
 
 This chapter describes the system behavior at runtime.
