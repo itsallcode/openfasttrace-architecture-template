@@ -13,7 +13,7 @@
     <url>https://github.com/itsallcode/openfasttrace-architecture-template/issues</url>
   </issueManagement>
   <url>https://github.com/itsallcode/openfasttrace</url>
-  <name>OpenFastTrace</name>
+  <name>OpenFastTrace Architecture Template</name>
   <description>Free software requirement tracing suite</description>
   <properties>
     <spec.name>AutoYummiBox - Software Architectural Design</spec.name>
@@ -120,7 +120,7 @@
           <verbose>false</verbose>
           <detail>true</detail>
           <licenseName>cc-by-sa-4.0</licenseName>
-          <licenseResolver>${project.basedir}/src/license</licenseResolver>
+          <licenseResolver>${project.baseUri}/src/license</licenseResolver>
           <organizationName>itsallcode.org</organizationName>
           <inceptionYear>2018</inceptionYear>
           <excludes>
@@ -130,6 +130,17 @@
           <failOnNotUptodateHeader>true</failOnNotUptodateHeader>
           <encoding>UTF-8</encoding>
           <dryRun>false</dryRun>
+          <extraExtensions>
+            <md>xml</md>
+            <markdown>xml</markdown>
+          </extraExtensions>
+          <roots>
+            <root>${spec.source.directory}</root>
+          </roots>
+          <includes>
+            <include>**/*.md</include>
+            <include>**/*.markdown</include>
+          </includes>
         </configuration>
         <executions>
           <execution>
@@ -145,15 +156,6 @@
               <goal>update-file-header</goal>
             </goals>
             <phase>process-sources</phase>
-            <configuration>
-              <roots>
-                <root>doc</root>
-              </roots>
-              <includes>
-                <include>**/*.md</include>
-                <include>**/*.markdown</include>
-              </includes>
-            </configuration>
           </execution>
         </executions>
       </plugin>

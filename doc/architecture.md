@@ -1,3 +1,13 @@
+<!--
+  #%L
+  OpenFastTrace
+  %%
+  Copyright (C) 2018 itsallcode.org
+  %%
+  This document is based on https://arc42.org by Dr. G. Starke & Dr. P. Hruschka
+  with modifications and additions from itsallcode.org, licensed under CC-BY-SA 4.0
+  #L%
+  -->
 <p style="font-size: 40px;">OFTAutoYummy - System Architecture</p> 
 
 > OFT: In this system architecture template we are discussing the design of a fictional product "OFTAutoYummy" that synthesizes meals from raw materials and is basically a 3D printer for ready-made food.

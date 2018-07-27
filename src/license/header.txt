@@ -1,5 +1,0 @@
-This document is based on the arc42 architecture template
-by Dr. G. Starke and Dr. P. Hruschka <https://arc42.org>
-with modifications and additions from ItsAllCode <http://itsallcode.org>
-
-License: Creative Commons CC-BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>

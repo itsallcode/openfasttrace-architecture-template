@@ -1,3 +1,13 @@
+<!--
+  #%L
+  OpenFastTrace
+  %%
+  Copyright (C) 2018 itsallcode.org
+  %%
+  This document is based on https://arc42.org by Dr. G. Starke & Dr. P. Hruschka
+  with modifications and additions from itsallcode.org, licensed under CC-BY-SA 4.0
+  #L%
+  -->
 # Introduction
 
 > OFT: start with a general introduction of your product / project here. Choose a detail level that allows first-time readers of your document whether or not the content is interesting for them.
