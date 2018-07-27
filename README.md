@@ -8,7 +8,7 @@ The architecture documents structure is based the the [arc42](https://arc42.org)
 
 The [arc42 template](https://github.com/arc42/arc42-template) is offered under the (CC-BY-SA)[LICENSE.txt]. Please keep attributions in all derived works.
 
-This build automatically includes license headers in the Markdown files for that reasons.
+This build automatically includes license headers in the Markdown files for that reasons. See ["Automatic License Headers"](#automatic-license-headers) for details.
  
 ## Installation
 
@@ -88,6 +88,16 @@ To configure the build variables like document name and version number change th
 The `spec.files` property must contain all files you want to render into the specification in the order in which that must be concatenated. 
 
 **&#9888; If you introduce new files, don't forget to list them there!**
+
+### Automatic License Headers
+
+The Maven build automatically checks whether all markdown files have a license header in in life cylce phase "validate". The build fails if one or more headers are missing.
+
+Run the following Maven command to create or update the file headers:
+
+```bash
+mvn license:update-project-license license:update-file-header
+```
 
 ## Build Dependencies
 
