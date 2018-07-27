@@ -1,5 +1,2 @@
 !include ../clean.skin
 !pragma horizontalLineBetweenDifferentPackageAllowed
-
-hide empty methods
-hide empty attributes

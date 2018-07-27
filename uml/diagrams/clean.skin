@@ -1,4 +1,5 @@
 @startuml
+skinparam style strictuml
 skinparam monochrome true
 skinparam Component {
   FontColor<<external>> DimGrey
@@ -6,4 +7,7 @@ skinparam Component {
   BackgroundColor<<external>> #fcfcfc
 }
 skinparam shadowing false
+
+hide empty methods
+hide empty attributes
 @enduml
