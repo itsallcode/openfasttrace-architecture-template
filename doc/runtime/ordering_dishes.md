@@ -64,3 +64,5 @@ Covers:
 * `req~ayb.dish-list~1`
 
 Needs: dsn
+
+Tags: MachineApplication

@@ -4,10 +4,11 @@ Template for system and software architecture done with OpenFastTrace.
 
 ## Acknowledgments
 
-The architecture documents structure is based the the [arc42](https://arc42.de) architecture template by Dr. Gernot Starke, Dr. Peter Hruschka.
+The architecture documents structure is based the the [arc42](https://arc42.org) architecture template by Dr. Gernot Starke, Dr. Peter Hruschka.
 
-The arc42 template is offered under a Creative Commons Attributions license ([CC-BY-SA](https://creativecommons.org/licenses/by-sa/4.0/)) which requires to keep attributions in all derived works.
-We kindly ask you to keep the license headers in the Markdown files for that reasons.
+The [arc42 template](https://github.com/arc42/arc42-template) is offered under the (CC-BY-SA)[LICENSE.txt]. Please keep attributions in all derived works.
+
+This build automatically includes license headers in the Markdown files for that reasons.
  
 ## Installation
 

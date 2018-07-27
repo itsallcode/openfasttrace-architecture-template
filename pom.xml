@@ -21,7 +21,9 @@
     <spec.version>1.0.0</spec.version>
     <spec.files>architecture.md introduction.md context.md
       solution_strategy.md building_blocks.md
-      building_blocks/MachineApplication.md runtime.md runtime/ordering_dishes.md runtime/preparing_dishes.md runtime/paying_with_credit_card.md design_decisions.md risks.md
+      building_blocks/MachineApplication.md runtime.md
+      runtime/ordering_dishes.md runtime/preparing_dishes.md
+      runtime/paying_with_credit_card.md design_decisions.md risks.md
       glossary.md bibliography.md</spec.files>
     <!-- Do not change the properties below -->
     <spec.source.directory>${project.basedir}/doc</spec.source.directory>
@@ -109,17 +111,52 @@
           </execution>
         </executions>
       </plugin>
-      <!-- plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>license-maven-plugin</artifactId> 
-        <version>1.16</version> <configuration> <verbose>false</verbose> <detail>true</detail> 
-        <licenseName>cc-by-4.0</licenseName> <licenseResolver>${project.basedir}/src/license</licenseResolver> 
-        <organizationName>itsallcode.org</organizationName> <inceptionYear>2018</inceptionYear> 
-        <excludes> </excludes> <failOnMissingHeader>true</failOnMissingHeader> <failIfWarning>true</failIfWarning> 
-        <failOnNotUptodateHeader>true</failOnNotUptodateHeader> <encoding>UTF-8</encoding> 
-        <dryRun>false</dryRun> </configuration> <executions> <execution> <id>check-file-header</id> 
-        <goals> <goal>check-file-header</goal> </goals> <phase>validate</phase> </execution> 
-        <execution> <id>first</id> <goals> <goal>update-file-header</goal> </goals> 
-        <phase>process-sources</phase> <configuration> <roots> <root>src/markdown</root> 
-        </roots> </configuration> </execution> </executions> </plugin -->
+      <plugin>
+        <!-- See http://www.mojohaus.org/license-maven-plugin/examples/example-add-license.html -->
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <version>1.16</version>
+        <configuration>
+          <verbose>false</verbose>
+          <detail>true</detail>
+          <licenseName>cc-by-sa-4.0</licenseName>
+          <licenseResolver>${project.basedir}/src/license</licenseResolver>
+          <organizationName>itsallcode.org</organizationName>
+          <inceptionYear>2018</inceptionYear>
+          <excludes>
+          </excludes>
+          <failOnMissingHeader>true</failOnMissingHeader>
+          <failIfWarning>true</failIfWarning>
+          <failOnNotUptodateHeader>true</failOnNotUptodateHeader>
+          <encoding>UTF-8</encoding>
+          <dryRun>false</dryRun>
+        </configuration>
+        <executions>
+          <execution>
+            <id>check-file-header</id>
+            <goals>
+              <goal>check-file-header</goal>
+            </goals>
+            <phase>validate</phase>
+          </execution>
+          <execution>
+            <id>first</id>
+            <goals>
+              <goal>update-file-header</goal>
+            </goals>
+            <phase>process-sources</phase>
+            <configuration>
+              <roots>
+                <root>doc</root>
+              </roots>
+              <includes>
+                <include>**/*.md</include>
+                <include>**/*.markdown</include>
+              </includes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>

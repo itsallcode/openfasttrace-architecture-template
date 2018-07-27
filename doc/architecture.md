@@ -7,7 +7,7 @@
 
 > OFT: In order to allow for requirement tracing, the template uses the "Requirement-enhanced Markdown format" defined by the [OpenFastTrace](https://github.com/itsallcode/openfasttrace) project. The examples and additions also come from this project.
   
-> OFT: Comments are typeset as block quotes in this document and lead in by "OFT:" so that you can easily remove them with "search & replace".  
+> OFT: Comments are typeset as block quotes in this document starting with "OFT:" so that you can easily remove them with "search & replace".  
 
 > OFT: The chapters of this document are contained in separate files. We recommend this especially for larger projects where multiple persons will work on parts of the document in parallel. This way the merging overhead is lower. Also this keeps the files from growing to sizes that are unmanageable.
 
