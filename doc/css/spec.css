@@ -71,11 +71,11 @@ div#TOC ~ * {
 div#TOC {
 	position: fixed;
 	top: 0px;
-	height: 100%;
+	height: calc(100%);
 	width: 28em;
 	margin-left: calc(100% - 30em);
 	overflow-y: scroll;
-	box-shadow: 5px 0px 20px #888888;
+	box-shadow: -10px 0px 10px lightgrey;
 }
 
 div#TOC ul {
@@ -90,12 +90,12 @@ div#TOC li {
 
 div#TOC a {
 	text-decoration: none;
-	color: dimgray;
+	color: dimgrey;
 }
 
 div#TOC a:hover {
 	text-decoration: underline;
-	color: dimgray;
+	color: dimgrey;
 }
 
 p.caption {

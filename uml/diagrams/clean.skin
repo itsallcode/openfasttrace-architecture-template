@@ -5,4 +5,5 @@ skinparam Component {
   StereotypeFontColor<<external>> DimGrey
   BackgroundColor<<external>> #fcfcfc
 }
+skinparam shadowing false
 @enduml

@@ -14,16 +14,16 @@ This build automatically includes license headers in the Markdown files for that
 
 ### On Debian / Ubuntu Linux
 
-If you only want to render the document to you need to install [Pandoc](https://pandoc.org).
+If you only want to render the document to you need to install [Pandoc](https://pandoc.org). UML diagrams are rendered with [PlantUML](https://plantuml.com).
 
 ```bash
-apt install pandoc
+apt install plantuml pandoc
 ```
 
 Since Pandoc renders PDFs with the Help of `pdflatex` you also need to install a appropriate TeX distribution. On Linux the [TeX Live](https://tug.org/texlive/) packages are typically part of the standard repositories. 
 
 ```bash
-apt install pandoc texlive-latex-base
+apt install plantuml pandoc texlive-latex-base
 ```
 
 ## Project Layout
