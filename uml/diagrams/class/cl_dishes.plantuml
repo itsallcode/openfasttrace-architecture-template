@@ -1,0 +1,56 @@
+@startuml
+!include ../clean.skin
+
+class Menu
+
+class Dish {
+	# name : String
+	# price : MonetaryAmount
+}
+
+class Recipe
+
+class Step {
+	# ingredientAmount : float
+	# targetTemperature : float
+}
+
+class Ingredient {
+	# name : String
+}
+
+class 3DShape
+
+class Paste {
+	# productNumber : String
+}
+
+class IngredientDeclaration {
+	# name : String
+	# allergen : boolean
+}
+
+class NutritionFact {
+	# type : NutritionFactType
+	# amountPercent : float
+}
+
+enum NutritionFactType <<enumeration>> {
+	FAT
+	SUGAR
+	PROTEIN
+	VITAMIN_A
+	VITAMIN_B
+	VITAMIN_C
+}
+
+Menu *-r- "1..*" Dish : avaiblable\ndishes
+Dish --> Recipe : prepared according to
+Recipe *-- "1..*" Step
+Step -l-> 3DShape
+Step -r-> Ingredient
+Ingredient -d-> "1..*" Paste : compatible
+Paste -l-> "*" IngredientDeclaration : declare
+Paste *-d- "*" NutritionFact 
+NutritionFact -l-> NutritionFactType
+@enduml
