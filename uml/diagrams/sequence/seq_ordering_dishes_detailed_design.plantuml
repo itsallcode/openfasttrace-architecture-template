@@ -5,7 +5,7 @@
 box "MachineApplication"
 	!include ../../participants/vendingmachine/UserInterface.plantuml
 	!include ../../participants/vendingmachine/MachineController.plantuml
-	!include ../../participants/vendingmachine/RecipeCache.plantuml
+	!include ../../participants/vendingmachine/Cook.plantuml
 	!include ../../participants/foodprinter/PasteContainerConnector.plantuml
 end box
 !include ../../participants/foodprinter/PasteContainer.plantuml
@@ -30,17 +30,17 @@ end loop
 
 PasteContainerConnector -->> MachineController : pasteInventory
 deactivate PasteContainerConnector
-MachineController -> RecipeCache : filterDishes(pasteInventory)
-activate RecipeCache
+MachineController -> Cook : filterDishes(pasteInventory)
+activate Cook
 
 loop each recipe
-	RecipeCache -> RecipeCache : canPrepare(recipe,\npasteInvertory)
-	activate RecipeCache
-	deactivate RecipeCache
+	Cook -> Cook : canPrepare(recipe,\npasteInvertory)
+	activate Cook
+	deactivate Cook
 end loop
 
-RecipeCache -->> MachineController : dishes
-deactivate RecipeCache
+Cook -->> MachineController : dishes
+deactivate Cook
 MachineController -->> UserInterface : dishes
 deactivate MachineController
 UserInterface -> UserInterface : renderDishList(dishes)

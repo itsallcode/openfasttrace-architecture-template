@@ -18,7 +18,7 @@ node EmbeddedARMBoard <<external>> {
 		!include ../../components/vendingmachine/MachineController.plantuml
 		!include ../../components/vendingmachine/UserInterface.plantuml
 		!include ../../components/vendingmachine/MachineBackendConnector.plantuml
-		!include ../../components/vendingmachine/RecipeCache.plantuml
+		!include ../../components/vendingmachine/Cook.plantuml
 		!include ../../components/foodprinter/PasteContainerConnector.plantuml
 		!include ../../components/foodprinter/FoodPrinterController.plantuml
 		!include ../../components/payment/CreditCardConnector.plantuml
@@ -35,13 +35,13 @@ node EmbeddedARMBoard <<external>> {
 		}
 
 		MachineController -r- MachineBackendConnector
-		MachineController -d- RecipeCache
+		MachineController -d- Cook
 		MachineController -d- PasteInventory
 		MachineController -u- FoodPrinterController
 		MachineController -u- PasteContainerConnector
 		MachineController -r- PaymentHandler
-		RecipeCache -l- MachineBackendConnector
-		RecipeCache -l- Recipe
+		Cook -l- MachineBackendConnector
+		Cook -l- Recipe
 		PaymentHandler -u- CreditCardConnector
 		PaymentHandler -d- Payment
 		PaymentHandler -r- PaymentClient

@@ -31,4 +31,41 @@ This section describes the terms "menu", "dish" and "recipe" and their relations
 
 ![Menu, dishes and recipes](uml/class/cl_dishes.svg "Menu, dishes and recipes")
 
+#### Dishes
+`arch~ayb.dishes~2`
+
+Dishes have the following attributes:
+* name (String)
+* price (MonetaryAmount)
+* recipe (Recipe)
+
+Covers:
+
+* `req~ayb.list-dishes~1`
+* `req~ayb.pick-dish~2`
+* `req~ayb.search-dishes~1`
+* `req~ayb.pay-dish~2`
+
+Needs: dsn
+
+Tags: Cook, CookingBook
+
+#### Recipe
+`arch~ayb.recipe~1`
+
+A Recipe is a series of steps to cook a Dish.
+
+Covers:
+
+* `req.ayb.cook-dishes~1`
+* `req.ayb.list-nutrition-facts~1`
+
+Needs: dsn
+
+Tags: Cook, CookingBook
+
+> OFT: ...
+
+> OFT: As before we stop the specification item list here since you got the point.
+
 ## Guidelines
