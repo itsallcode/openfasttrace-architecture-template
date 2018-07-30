@@ -100,5 +100,5 @@ Tags: MachineManager
 
 ## Sub-Level 1 Building Blocks
 
-* [MachineApplication Building Blocks](building_blocks/MachineApplication.md)
+* [MachineApplication Building Blocks](building_block_view/MachineApplication.md)
 * ...

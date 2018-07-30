@@ -20,10 +20,10 @@
     <spec.filename>SwAD-AutoYummiBox</spec.filename>
     <spec.version>1.0.0</spec.version>
     <spec.files>architecture.md introduction.md context.md
-      solution_strategy.md building_blocks.md
-      building_blocks/MachineApplication.md runtime.md
-      runtime/ordering_dishes.md runtime/preparing_dishes.md
-      runtime/paying_with_credit_card.md deployment.md concepts.md
+      solution_strategy.md building_block_view.md
+      building_block_view/MachineApplication.md runtime_view.md
+      runtime_view/ordering_dishes.md runtime_view/preparing_dishes.md
+      runtime_view/paying_with_credit_card.md deployment_view.md concepts.md
       design_decisions.md quality_scenarios.md risks.md glossary.md
       bibliography.md</spec.files>
     <!-- Do not change the properties below -->
@@ -33,6 +33,7 @@
     <spec.build.html.directory>${project.build.directory}</spec.build.html.directory>
     <spec.build.uml.directory>${project.build.directory}/uml</spec.build.uml.directory>
     <spec.build.css.directory>${project.build.directory}/css</spec.build.css.directory>
+    <lua.source.directory>${project.basedir}/src/main/lua</lua.source.directory>
   </properties>
   <build>
     <plugins>
@@ -100,9 +101,13 @@
             <configuration>
               <executable>pandoc</executable>
               <workingDirectory>${spec.source.directory}</workingDirectory>
-              <commandlineArgs>--from=markdown --to=html --toc
+              <commandlineArgs>--from=markdown --to=html5
+                --standalone
+                --toc
                 --number-sections
                 --css=${spec.source.css.directory}/spec.css
+                --lua-filter=${lua.source.directory}/link_converter.lua
+                --strip-comments
                 --output=${spec.build.html.directory}/${spec.filename}.html
                 ${spec.files}</commandlineArgs>
             </configuration>

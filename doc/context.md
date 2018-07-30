@@ -47,7 +47,7 @@ Machine Maintainers are responsible for keeping the AutoYummiBoxes clean and sto
 
 > OFT: Neighboring systems are project-external technical systems that are attached to your system or that your system attaches to. Systems run by the same company which are outside of the responsibility of this project also count as external.
 
-> OFT: arc42 suggests listing technical details about the communication channels to the neighboring systems. We recommend that you do not go to this level of detail here since in a non-trivial system interface descriptions go beyond the scope of a simple system context, often involving painful architectural decisions between available communication options. Those details are better kept in the [Building Block View](building_blocks.md) and [Deployment View](deployment.md) chapter. Also keep in mind that the context chapter is often read by management and needs to be on an abstraction level managers are able to follow.
+> OFT: arc42 suggests listing technical details about the communication channels to the neighboring systems. We recommend that you do not go to this level of detail here since in a non-trivial system interface descriptions go beyond the scope of a simple system context, often involving painful architectural decisions between available communication options. Those details are better kept in the [Building Block View](building_block_view.md) and [Deployment View](deployment.md) chapter. Also keep in mind that the context chapter is often read by management and needs to be on an abstraction level managers are able to follow.
 
 #### Payment Provider
 

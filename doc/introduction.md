@@ -101,14 +101,14 @@ For a list of OFTAutoYummi's stakeholder contacts and their responsibilities ple
 
 ### Software Developers
 
-The main audience for this software architecture are persons responsible for the design and implementation of the [building blocks](building_blocks.md). They have to base their detailed designs on the requirements stated in this document. 
+The main audience for this software architecture are persons responsible for the design and implementation of the [building blocks](building_block_view.md). They have to base their detailed designs on the requirements stated in this document. 
 
 Recommended reading:
 
 * Introduction
 * [Context](context.md)
 * [Constraints](constraints.md)
-* [Building Block View](building_blocks)
+* [Building Block View](building_block_view)
 * [Runtime View](runtime.md)
 * [Concepts](concepts.md)
 * [Design Decisions](design_decisions.md)
@@ -142,7 +142,7 @@ Recommended reading:
 Chapters that might also be interesting for this role:
 
 * [Context](context.md)
-* [Building Block View](building_blocks)
+* [Building Block View](building_block_view)
 * [Risks](risks.md)
 
 ### Testers
@@ -154,7 +154,7 @@ Recommended reading:
 * Introduction
 * [Context](context.md)
 * [Constraints](constraints.md)
-* [Building Block View](building_blocks)
+* [Building Block View](building_block_view)
 * [Runtime View](runtime.md)
 * [Concepts](concepts.md)
 * [Quality Scenarios](quality_scenarios.md)
@@ -167,5 +167,5 @@ Recommended reading:
 
 * Introduction
 * [Context](context.md)
-* [Building Block View](building_blocks)
+* [Building Block View](building_block_view)
 * [Deployment View](deployment)

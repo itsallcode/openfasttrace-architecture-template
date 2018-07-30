@@ -11,7 +11,7 @@
 
 # Deployment
 
-This chapter describes the deployment of the system. Where the chapter ["Building Blocks"](building_blocks.md) only describes the components, their dependencies and interfaces, this chapter here discusses on which runtime environments the components are deployed, how they are networked and where to find the artifacts they need.
+This chapter describes the deployment of the system. Where the chapter ["Building Blocks"](building_block_view.md) only describes the components, their dependencies and interfaces, this chapter here discusses on which runtime environments the components are deployed, how they are networked and where to find the artifacts they need.
 
 > OFT: Unsurprisingly the deployment chart is the most important tool to layout the deployment.
 
@@ -80,12 +80,12 @@ Needs: dsn
 
 ![AutoYummyBox internal deployment](uml/deployment/depl_autoyummybox.svg "AutoYummyBox internal deployment")
 
-> OFT: Compare the deployment diagram above to the component structure in section ["MachineApplication"](building_blocks/MachineApplication.md). You will notice that the associations don't have directions anymore. The deployment diagram is not the right place to depict component dependencies.
+> OFT: Compare the deployment diagram above to the component structure in section ["MachineApplication"](building_block_view/MachineApplication.md). You will notice that the associations don't have directions anymore. The deployment diagram is not the right place to depict component dependencies.
 
 > OFT: More importantly you can see the runtime environments (both in hardware and software) hinted in the diagram.
 
 The network and bus connections inside the AutoYummyBox are predefined by the hardware supplier.
 
-The product used as embedded database is intentionally not specified. Selecting one is at the discretion of the designers of the [MachineApplication](building_blocks/MachineApplication.md).
+The product used as embedded database is intentionally not specified. Selecting one is at the discretion of the designers of the [MachineApplication](building_block_view/MachineApplication.md).
 
 > OFT: Note that it is a perfectly normal situation to have internal components deployed on project-external runtime environments.

@@ -99,6 +99,19 @@ Run the following Maven command to create or update the file headers:
 mvn license:update-project-license license:update-file-header
 ```
 
+### Conversion
+
+The original files are in Markdown format. The general idea of the links between those files is that you can navigate without conversion to other formats already. This way you can read your specifications directly in your favorite repository viewer.
+
+On the other hand you of course want the links to work properly when converting to HTML or PDF too. Pandoc allows us to use filters during conversion that achieve this. Either as filters in a pipe on the console or via the built-in Lua interpreter.
+
+Check the following [Lua](https://www.lua.org/) file to see how the original links between the source Markdown files are converted to the target format.
+
+    src/main/lua/link_converter.lua
+
+The filter is applied via the `--lua-filters` command line switch.
+     
+
 ## Build Dependencies
 
 | Dependency                                                                              | Purpose                | License                                                                |

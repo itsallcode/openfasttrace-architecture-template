@@ -9,7 +9,7 @@
   #L%
   -->
 
-<p style="font-size: 40px;">OFTAutoYummy - System Architecture</p> 
+# OFTAutoYummy - System Architectur {-} 
 
 > OFT: In this system architecture template we are discussing the design of a fictional product "OFTAutoYummy" that synthesizes meals from raw materials and is basically a 3D printer for ready-made food.
   The example is intended to demonstrate architectural considerations of a project that has both hardware and software parts.
@@ -30,9 +30,9 @@
 2. [Context](context.md)
 3. [Constraints](constraints.md)
 4. [Solution strategy](solution_strategy.md)
-5. [Building blocks](building_blocks.md)
-6. [Runtime](runtime.md)
-7. [Deployment](deployment.md)
+5. [Building blocks](building_block_view.md)
+6. [Runtime](runtime_view.md)
+7. [Deployment](deployment_view.md)
 8. [Cross-cutting Concerns](concerns.md)
 9. [Design Decisions](design_decisions.md)
 10. [Quality Scenarios](quality_scenarios.md)

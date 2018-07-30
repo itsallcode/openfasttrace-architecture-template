@@ -64,11 +64,11 @@ blockquote {
   padding-left: 1em;
 }
 
-div#TOC ~ * {
+#TOC ~ * {
 	width: calc(100% - 30em);
 }
 
-div#TOC {
+#TOC {
 	position: fixed;
 	top: 0px;
 	height: calc(100%);
@@ -78,22 +78,22 @@ div#TOC {
 	box-shadow: -10px 0px 10px lightgrey;
 }
 
-div#TOC ul {
+#TOC ul {
 	list-style-type: none;
 	padding-left: 1em;
 }
 
-div#TOC li {
+#TOC li {
   padding-bottom: 0.25em;
   padding-top: 0.25em;
 }
 
-div#TOC a {
+#TOC a {
 	text-decoration: none;
 	color: dimgrey;
 }
 
-div#TOC a:hover {
+#TOC a:hover {
 	text-decoration: underline;
 	color: dimgrey;
 }
