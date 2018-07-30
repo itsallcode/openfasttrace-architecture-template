@@ -17,11 +17,13 @@
 
 ## Specifications
 
-* <a name="SRS"></a>SRS: "OFTAutoYummi - System Requirement Specification", *S. Baer, Chr. Pirkl*, 2018, [itsallcode.org](https://itsallcode.org)
+* <a name="srs"></a>SRS: "OFTAutoYummi - System Requirement Specification", *S. Baer, Chr. Pirkl*, 2018, [itsallcode.org](https://itsallcode.org)
 
 ## Standards
 
 > OFT: List here any standards that you refer to in your documents. For example IETF RFCs or ISO standards.
+
+* <a name="rfc2119"></a> [RFC 2119: Key words for use in RFCs to Indicate Requirement Levels](https://tools.ietf.org/html/rfc2119), *S. Brander*, 1997, Harvard Univerity
 
 ## Documents
 

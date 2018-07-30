@@ -31,7 +31,38 @@ Requirements in this document are written in "Requirment enhanced Markdown forma
 
 Using this format allows you to scan the requirement chain using OFT to see if all requirements from the user-level [System Requirement Specification (SRS)](bibliography.md#srs) are covered.
 
-The name part of the requirement IDs contains the prefix `ayb.` (for "AutoYummyBox") in order to avoid ID collisions when the specification is used in a wider scope cross-project. 
+The name part of the requirement IDs contains the prefix `ayb.` (for "AutoYummyBox") in order to avoid ID collisions when the specification is used in a wider scope cross-project.
+
+### Normative vs. Informative Passages
+
+This document contains two kinds of passages: normative and informative.
+
+Normative passages require the implementing party to adhere strictly to the letter of the specification. You can recognize normative parts by the fact that they are written as OFT specification items. Most importantly each has a unique requirement ID.
+
+The artifact type used for specification items in this document are:
+
+* `arch` -- regular architectural requirements
+* `archrisk` -- technical risks
+* `archdeci` -- top level design decisions
+
+ Specification items also define in which artifact type they need to be covered. In this architecture document typically a Detailed Design (`dsn`).
+
+All passages that are not normative are informative, meaning that they contain background, explanations or references that help readers understand the document. They don't require coverage in other artifact types.
+
+### Language Conventions for Normative Passages
+
+This document uses natural language for normative passages. Specification items are formulated as if the contained requirement were already implemented.
+
+Example:
+
+> The FoodPrinter heats the paste nozzle up so that the applied paste has the target temperature defined in the recipe step currently executed.
+
+Notice that there are no artificial SHALL, SHOULD or MUSTs (like in documents adhering to [RFC 2119](bibliography.md#rfc2119) in this sentence and that it does not point to the future.
+
+This has two advantages:
+
+1. The text is more readable
+2. It is true once the requirement is implemented
 
 ## Requirement Overview
 
