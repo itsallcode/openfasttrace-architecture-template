@@ -13,7 +13,7 @@ function Link(link)
         target = string.sub(target, hashTagPos)      
       else
         if string.find(target, "%.md$") or string.find(target, "%.markdown") then
-          target = string.gsub(target, "(.*)[/\]", "")
+          target = string.gsub(target, "(.*)[/\\]", "")
           target = string.gsub(target, "[_ ]", "-")
           target = string.gsub(target, "%.md$", "")
           target = string.gsub(target, "%.markdown$", "")
