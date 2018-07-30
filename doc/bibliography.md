@@ -27,7 +27,10 @@
 
 ## Documents
 
-* <a name="OAY-ORGA"></a>OAY-ORGA: "OFTAutoYummi Organization", *J. Doe*, 2018
+* <a name="acgl"></a>ASGL: "Logging Guideline", *J. Weng, M. Liu"*, 2017
+* <a name="oay-orga"></a>OAY-ORGA: "OFTAutoYummi Organization", *J. Doe*, 2018
+* <a name="lgl"></a>LGL: "Logging Guideline", *M. Mustermann"*, 2017
+* <a name="mgl"></a>MGL: "Monitoring Guideline", *L. Smith"*, 2017
 
 ## Web Sites
 

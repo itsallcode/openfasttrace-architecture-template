@@ -69,3 +69,12 @@ Tags: Cook, CookingBook
 > OFT: As before we stop the specification item list here since you got the point.
 
 ## Guidelines
+
+> OFT: Only guidelines that are project specific should appear in this section. For guidelines with a broader scope, a reference is a better idea. Don't forget to add them in the [Bibliography](bibliography.md).
+
+The following guidelines apply to the development of this system:
+
+1. [Logging Guideline](bibliography.md#lgl)
+1. [Monitoring Guideline](bibliography.md#mgl)
+1. [Account Security Guideline](bibliography.md#asgl)
+1. ...
