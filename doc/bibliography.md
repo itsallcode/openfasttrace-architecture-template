@@ -23,7 +23,7 @@
 
 > OFT: List here any standards that you refer to in your documents. For example IETF RFCs or ISO standards.
 
-* <a name="rfc2119"></a> [RFC 2119: Key words for use in RFCs to Indicate Requirement Levels](https://tools.ietf.org/html/rfc2119), *S. Brander*, 1997, Harvard Univerity
+* <a name="rfc2119"></a> "[RFC 2119: Key words for use in RFCs to Indicate Requirement Levels](https://tools.ietf.org/html/rfc2119)", *S. Brander*, 1997, Harvard Univerity
 
 ## Documents
 
@@ -31,6 +31,7 @@
 * <a name="oay-orga"></a>OAY-ORGA: "OFTAutoYummi Organization", *J. Doe*, 2018
 * <a name="lgl"></a>LGL: "Logging Guideline", *M. Mustermann"*, 2017
 * <a name="mgl"></a>MGL: "Monitoring Guideline", *L. Smith"*, 2017
+* <a name="atam"></a>ATAM: "[The Architecture Tradeoff Analysis Method](https://resources.sei.cmu.edu/library/asset-view.cfm?assetID=13091)", *R. Kazman, et. al.*, Carnegie Mellon Software Engineering Institute, July 1997
 
 ## Web Sites
 
