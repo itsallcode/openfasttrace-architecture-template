@@ -84,7 +84,7 @@ Start the
 | Dependency                                                                              | Purpose                | License                                                                |
 |-----------------------------------------------------------------------------------------|------------------------|------------------------------------------------------------------------|
 | [Assembly Maven plugin](https://maven.apache.org/plugins/maven-assembly-plugin/)        | Pack into archive      | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
-| [Copy resources Maven plugin)(https://maven.apache.org/plugins/maven-resources-plugin/) | Copy original files    | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |              |
+| [Copy resources Maven plugin](https://maven.apache.org/plugins/maven-resources-plugin/) | Copy original files    | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |              |
 | [Exec Maven plugin](https://www.mojohaus.org/exec-maven-plugin/)                        | Running Pandoc         | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
 | [License Maven plugin](http://www.mojohaus.org/license-maven-plugin/)                   | Adding license headers | [GPL v3.0](http://www.gnu.org/licenses/quick-guide-gplv3.html)         |
 | [Maven](https://maven.apache.org/)                                                      | Build                  | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
