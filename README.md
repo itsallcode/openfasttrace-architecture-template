@@ -116,8 +116,7 @@ Check the following [Lua](https://www.lua.org/) file to see how the original lin
 
     src/main/lua/link_converter.lua
 
-The filter is applied via the `--lua-filters` command line switch.
-     
+The filter is applied via the `--lua-filters` command line switch.   
 
 ## Build Dependencies
 
@@ -129,3 +128,23 @@ The filter is applied via the `--lua-filters` command line switch.
 | [Maven](https://maven.apache.org/)                                                      | Build                  | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
 | [Pandoc](https://pandoc.org)                                                            | Document rendering     | [GPL v3.0](http://www.gnu.org/licenses/quick-guide-gplv3.html)         |
 | [PlantUML Maven plugin](https://github.com/jeluard/maven-plantuml-plugin)               | Diagram rendering      | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
+
+## Validation
+
+It is a good idea to check the links in your document from time to time.
+
+### Under Debian / Ubuntu
+
+Install the `linkchecker` package:
+
+```bash
+apt install linkchecker
+```
+
+Check the links in the generated HTML docuements:
+
+```bash
+linkchecker --check-extern target/*.html
+```
+
+If you remove the command line switch `--check-extern` only local links are checked. 

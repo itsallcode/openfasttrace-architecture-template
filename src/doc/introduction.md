@@ -108,7 +108,7 @@ Recommended reading:
 * Introduction
 * [Context](context.md)
 * [Constraints](constraints.md)
-* [Building Block View](building_block_view)
+* [Building Block View](building_block_view.md)
 * [Runtime View](runtime.md)
 * [Concepts](concepts.md)
 * [Design Decisions](design_decisions.md)
@@ -142,7 +142,7 @@ Recommended reading:
 Chapters that might also be interesting for this role:
 
 * [Context](context.md)
-* [Building Block View](building_block_view)
+* [Building Block View](building_block_view.md)
 * [Risks](risks.md)
 
 ### Testers
@@ -154,7 +154,7 @@ Recommended reading:
 * Introduction
 * [Context](context.md)
 * [Constraints](constraints.md)
-* [Building Block View](building_block_view)
+* [Building Block View](building_block_view.md)
 * [Runtime View](runtime.md)
 * [Concepts](concepts.md)
 * [Quality Scenarios](quality_scenarios.md)
@@ -167,5 +167,5 @@ Recommended reading:
 
 * Introduction
 * [Context](context.md)
-* [Building Block View](building_block_view)
-* [Deployment View](deployment)
+* [Building Block View](building_block_view.md)
+* [Deployment View](deployment_view.md)

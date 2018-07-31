@@ -31,8 +31,11 @@
     <spec.source.css.directory>${spec.source.directory}/css</spec.source.css.directory>
     <spec.model.directory>${project.basedir}/src/uml</spec.model.directory>
     <spec.build.html.directory>${project.build.directory}</spec.build.html.directory>
+    <spec.build.pdf.directory>${project.build.directory}</spec.build.pdf.directory>
     <spec.build.uml.directory>${project.build.directory}/uml</spec.build.uml.directory>
     <spec.build.css.directory>${project.build.directory}/css</spec.build.css.directory>
+    <spec.file.html>${spec.build.html.directory}/${spec.filename}.html</spec.file.html>
+    <spec.file.pdf>${spec.build.pdf.directory}/${spec.filename}.pdf</spec.file.pdf>
     <lua.source.directory>${project.basedir}/src/main/lua</lua.source.directory>
   </properties>
   <build>
@@ -105,8 +108,7 @@
                 --toc --number-sections
                 --css=${spec.source.css.directory}/spec.css
                 --lua-filter=${lua.source.directory}/link_converter.lua
-                --strip-comments
-                --output=${spec.build.html.directory}/${spec.filename}.html
+                --strip-comments --output=${spec.file.html}
                 ${spec.files}</commandlineArgs>
             </configuration>
             <goals>

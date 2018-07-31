@@ -17,7 +17,7 @@
 
 ## Specifications
 
-* <a name="srs"></a>SRS: "OFTAutoYummi - System Requirement Specification", *S. Baer, Chr. Pirkl*, 2018, [itsallcode.org](https://itsallcode.org)
+* <a name="srs"></a>SRS: "OFTAutoYummi - System Requirement Specification", *S. Baer, Chr. Pirkl*, 2018, [itsallcode.org](http://itsallcode.org)
 
 ## Standards
 
