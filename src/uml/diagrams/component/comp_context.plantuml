@@ -1,0 +1,17 @@
+@startuml
+!include comp.skin
+
+!include ../../actors/Customer.plantuml
+!include ../../actors/MachineMaintainer.plantuml
+!include ../../actors/Technician.plantuml
+
+!include ../../nodes/OftAutoYummy.plantuml
+!include ../../nodes/PaymentProvider.plantuml
+!include ../../nodes/PasteFactory.plantuml
+
+OftAutoYummyNode -u- "*" Customer
+OftAutoYummyNode -d- "*" MachineMaintainer
+OftAutoYummyNode -d- "*" Technician
+OftAutoYummyNode -r- "4..*" PaymentProviderNode : credit card payments\nVirtuCoinBuddy payments
+OftAutoYummyNode -l- "2..*" PasteFactoryNode : < paste order\npaste delivery >
+@enduml

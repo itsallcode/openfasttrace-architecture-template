@@ -1,0 +1,16 @@
+@startuml
+!include comp.skin
+
+component A
+component B
+component C
+component D
+component E
+
+A -d-> B
+B -l-> C
+C -u-> A
+
+D --> E
+E --> D
+@enduml

@@ -1,0 +1,62 @@
+@startuml
+!include comp.skin
+
+package org.itsallcode {
+	package vendingmachine {
+		!include ../../components/vendingmachine/MachineController.plantuml
+		!include ../../components/vendingmachine/UserInterface.plantuml
+		!include ../../components/vendingmachine/MachineBackendConnector.plantuml
+		!include ../../components/vendingmachine/Cook.plantuml
+		MachineController -r-> MachineBackendConnector
+		MachineController -r-> Cook
+		Cook -r-> MachineBackendConnector
+	}
+	
+	package foodprinter {
+		!include ../../components/foodprinter/PasteContainerConnector.plantuml
+		!include ../../components/foodprinter/FoodPrinterController.plantuml
+		!include ../../interfaces/foodprinter/FoodPrinterIF.plantuml
+		!include ../../interfaces/foodprinter/PasteContainerIF.plantuml
+		FoodPrinterController -u-( FoodPrinterIF
+		PasteContainerConnector -u-( PasteContainerIF
+	}
+	
+	package payment {
+		!include ../../components/payment/CreditCardConnector.plantuml
+		!include ../../components/payment/PaymentHandler.plantuml
+		PaymentHandler -l-> CreditCardConnector
+	}
+	
+	UserInterface -r-> MachineController
+	MachineController -u-> FoodPrinterController
+	MachineController -u-> PasteContainerConnector
+	MachineController -d-> PaymentHandler
+}
+
+!include ../../components/http/HttpClient.plantuml
+!include ../../components/foodprinter/PasteContainer.plantuml
+!include ../../components/foodprinter/FoodPrinter.plantuml
+component CreditCardReader <<external>> <<hardware>> {
+	component "WrigglyWombatHttpClient" <<external>> as WombatHttpClient
+}
+note "We keep the two embedded\nHTTP client instances aligned." as N1
+
+N1 .r. HttpClient
+N1 .l. WombatHttpClient
+
+!include ../../components/payment/PaymentClient.plantuml
+!include ../../interfaces/payment/CreditCardReaderIF.plantuml
+!include ../../interfaces/payment/PaymentClientIF.plantuml
+!include ../../interfaces/http/HttpClientIF.plantuml
+
+FoodPrinter -d- FoodPrinterIF
+PasteContainer -d- PasteContainerIF
+CreditCardReader -u- CreditCardReaderIF
+PaymentClient -l- PaymentClientIF
+HttpClient -u- HttpClientIF
+CreditCardConnector -d-( CreditCardReaderIF
+PaymentHandler -d-( PaymentClientIF
+PaymentClient -r-( HttpClientIF
+MachineBackendConnector -d-( HttpClientIF
+
+@enduml

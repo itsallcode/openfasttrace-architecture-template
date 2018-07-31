@@ -1,0 +1,10 @@
+@startuml
+!include seq.skin
+!include ../../participants/foodprinter/PasteContainerConnector.plantuml
+!include ../../participants/foodprinter/PasteContainer.plantuml
+
+MachineController -> PasteContainerConnector : getInventory()
+loop
+	PasteContainerConnector -> PasteContainer : getPasteType()
+	
+@enduml

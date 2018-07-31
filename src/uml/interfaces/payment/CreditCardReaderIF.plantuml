@@ -1,0 +1,3 @@
+@startuml
+interface "CreditCardReader" <<external>> as CreditCardReaderIF
+@enduml
