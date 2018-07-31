@@ -73,6 +73,10 @@ We recommend using [Eclipse](https://eclipse.org), the built-in WikiText editor 
 
 Read the [OpenFastTrace User Guide](https://github.com/itsallcode/openfasttrace/blob/master/doc/user_guide.md) to learn how to create specifications in the OFT Markdown format.
 
+### Document Title and Authors
+
+Start the 
+
 ## Building
 
 ### Build Dependencies
@@ -97,16 +101,29 @@ To configure the build variables like document name and version number change th
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   <!-- ... -->
   <properties>
-    <spec.name>AutoYummiBox - Software Architectural Design</spec.name>
+    <!-- ... -->
+    <spec.version>${project.version}</spec.version>
+    <spec.date>${maven.build.timestamp}</spec.date>
+    <spec.title>AutoYummiBox ${spec.version} - Software Architectural Design</spec.title>
+    <spec.authors>S. Bär, M. Thielcke</spec.authors>
     <spec.filename>SwAD-AutoYummiBox</spec.filename>
-    <spec.version>1.0.0</spec.version>
-    <spec.files>architecture.md introduction.md ... bibliography.md</spec.files>
+    <spec.files>architecture.md introduction.md context.md
+      ...
+      glossary.md bibliography.md</spec.files>
   </properties>
   <!-- ... -->
 </project>
 ```
 
-The `spec.files` property must contain all files you want to render into the specification in the order in which that must be concatenated. 
+The `spec.files` property must contain all files you want to render into the specification in the order in which that must be concatenated.
+
+#### Defaults
+
+The document version (`spec.version`) defaults to the version of the Maven artifact. This has the advantage that the version only needs to be maintained in a single place.
+
+The document date (`spec.date`) defaults to the date of the build which is usually what you want if you build, release and deploy a document with [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration).
+
+While you will have to adapt the document's title (`spec.title`), we recommend that you let the build inject the version number as in the original example.
 
 **&#9888; If you introduce new files, don't forget to list them there!**
 

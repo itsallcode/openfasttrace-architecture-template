@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.itsallcode</groupId>
   <artifactId>openfasttrace-architecture-template</artifactId>
-  <version>0.1.0</version>
+  <version>1.0.0</version>
   <scm>
     <url>https://github.com/itsallcode/openfasttrace-architecture-template.git</url>
     <developerConnection>itsallcode.org</developerConnection>
@@ -16,9 +16,12 @@
   <name>OpenFastTrace Architecture Template</name>
   <description>Free software requirement tracing suite</description>
   <properties>
-    <spec.name>AutoYummiBox - Software Architectural Design</spec.name>
+    <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+    <spec.version>${project.version}</spec.version>
+    <spec.date>${maven.build.timestamp}</spec.date>
+    <spec.title>AutoYummiBox ${spec.version} - Software Architectural Design</spec.title>
+    <spec.authors>S. Bär, M. Thielcke</spec.authors>
     <spec.filename>SwAD-AutoYummiBox</spec.filename>
-    <spec.version>1.0.0</spec.version>
     <spec.files>architecture.md introduction.md context.md
       solution_strategy.md building_block_view.md
       building_block_view/MachineApplication.md runtime_view.md
@@ -109,6 +112,9 @@
                 --css=${spec.source.css.directory}/spec.css
                 --lua-filter=${lua.source.directory}/link_converter.lua
                 --strip-comments --output=${spec.file.html}
+                --metadata=title:"${spec.title}"
+                --metadata=date:"${spec.date}"
+                --metadata=author:"${spec.authors}"
                 ${spec.files}</commandlineArgs>
             </configuration>
             <goals>
