@@ -6,7 +6,7 @@ Template for system and software architecture done with OpenFastTrace.
 
 The architecture documents structure is based the the [arc42](https://arc42.org) architecture template by Dr. Gernot Starke, Dr. Peter Hruschka.
 
-The [arc42 template](https://github.com/arc42/arc42-template) is offered under the (CC-BY-SA)[LICENSE.txt]. Please keep attributions in all derived works.
+The [arc42 template](https://github.com/arc42/arc42-template) is offered under the [CC-BY-SA](LICENSE.txt). Please keep attributions in all derived works.
 
 This build automatically includes license headers in the Markdown files for that reasons. See ["Automatic License Headers"](#automatic-license-headers) for details.
  
@@ -32,32 +32,34 @@ The directory structure below shows the most important parts of the project layo
 
 ```
 project root
-  |-- launch                      Eclipse launch configurations
+  |-- launch                     Eclipse launch configurations
   |
   |-- src
-  |    |-- doc                    Markdown sources of the specification
-  |    |    |-- css               CSS for the HTML output
+  |    |-- assembly              Configuration for creating archives (TAR, ZIP)
+  |    |
+  |    |-- doc                   Markdown sources of the specification
+  |    |    |-- css              CSS for the HTML output
   |    |   ...
   |    |
-  |    |-- license                License and license headers
+  |    |-- license               License and license headers
   |    |
   |    |-- main
-  |    |    '-- lua               Lua filters for Pandoc
+  |    |    '-- lua              Lua filters for Pandoc
   |    |
-  |    '-- uml                    PlantUML sources for the UML model
+  |    '-- uml                   PlantUML sources for the UML model
   |         |-- actors         
   |         |-- classes
-  |         |-- diagrams          Sources for the UML diagrams
+  |         |-- diagrams         Sources for the UML diagrams
   |         |     |-- activity
   |         |     |-- class
   |         |    ...
   |        ...
   |
   |-- target
-  |    |-- <spec-name>.html       Generated HTML output of the specification
-  |    '-- <spec-name>.pdf        Generated PDF
+  |    |-- <spec-name>.html      Generated HTML output of the specification
+  |    '-- <spec-name>.pdf       Generated PDF
  ...
-  '-- pom.xml                      Maven project configuration
+  '-- pom.xml                    Maven project configuration
 ```
 
 **&#9888; Be careful not to accidentally edit files in the target directory. It happens to us now and then and is each time a source of annoyance since the changes are gone with the next build run.** 
@@ -72,6 +74,18 @@ We recommend using [Eclipse](https://eclipse.org), the built-in WikiText editor 
 Read the [OpenFastTrace User Guide](https://github.com/itsallcode/openfasttrace/blob/master/doc/user_guide.md) to learn how to create specifications in the OFT Markdown format.
 
 ## Building
+
+### Build Dependencies
+
+| Dependency                                                                              | Purpose                | License                                                                |
+|-----------------------------------------------------------------------------------------|------------------------|------------------------------------------------------------------------|
+| [Assembly Maven plugin](https://maven.apache.org/plugins/maven-assembly-plugin/)        | Pack into archive      | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
+| [Copy resources Maven plugin)(https://maven.apache.org/plugins/maven-resources-plugin/) | Copy original files    | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |              |
+| [Exec Maven plugin](https://www.mojohaus.org/exec-maven-plugin/)                        | Running Pandoc         | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
+| [License Maven plugin](http://www.mojohaus.org/license-maven-plugin/)                   | Adding license headers | [GPL v3.0](http://www.gnu.org/licenses/quick-guide-gplv3.html)         |
+| [Maven](https://maven.apache.org/)                                                      | Build                  | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
+| [Pandoc](https://pandoc.org)                                                            | Document rendering     | [GPL v3.0](http://www.gnu.org/licenses/quick-guide-gplv3.html)         |
+| [PlantUML Maven plugin](https://github.com/jeluard/maven-plantuml-plugin)               | Diagram rendering      | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
 
 ### Configuration
 
@@ -116,18 +130,21 @@ Check the following [Lua](https://www.lua.org/) file to see how the original lin
 
     src/main/lua/link_converter.lua
 
-The filter is applied via the `--lua-filters` command line switch.   
+The filter is applied via the `--lua-filters` command line switch.
 
-## Build Dependencies
+### Running the Build
 
-| Dependency                                                                              | Purpose                | License                                                                |
-|-----------------------------------------------------------------------------------------|------------------------|------------------------------------------------------------------------|
-| [Copy resources Maven plugin)(https://maven.apache.org/plugins/maven-resources-plugin/) | Copy original files    |https://maven.apache.org/plugins/maven-resources-plugin/                |
-| [Exec Maven plugin](https://www.mojohaus.org/exec-maven-plugin/)                        | Running Pandoc         | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
-| [License Maven plugin](http://www.mojohaus.org/license-maven-plugin/)                   | Adding license headers | [GPL v3.0](http://www.gnu.org/licenses/quick-guide-gplv3.html)         |
-| [Maven](https://maven.apache.org/)                                                      | Build                  | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
-| [Pandoc](https://pandoc.org)                                                            | Document rendering     | [GPL v3.0](http://www.gnu.org/licenses/quick-guide-gplv3.html)         |
-| [PlantUML Maven plugin](https://github.com/jeluard/maven-plantuml-plugin)               | Diagram rendering      | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
+If you only want to render the document and UML source into HTML and images run:
+
+```bash
+mvn compile
+```
+
+To create archives from the rendered documents run:
+
+```bash
+mvn package
+```
 
 ## Validation
 

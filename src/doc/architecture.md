@@ -9,7 +9,7 @@
   #L%
   -->
 
-# OFTAutoYummy - System Architectur {-} 
+# OFTAutoYummy - System Architecture {-} 
 
 > OFT: In this system architecture template we are discussing the design of a fictional product "OFTAutoYummy" that synthesizes meals from raw materials and is basically a 3D printer for ready-made food.
   The example is intended to demonstrate architectural considerations of a project that has both hardware and software parts.
