@@ -55,7 +55,7 @@ h6 + p > code:first-of-type {
   text-align: right;
   width: 100%; 
   position: relative;
-  top: -2.5em;
+  top: -1.5em;
 }
 
 blockquote {
