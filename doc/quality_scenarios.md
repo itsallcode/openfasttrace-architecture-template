@@ -50,7 +50,7 @@
 #### Maximum Dish List Download Duration
 `arch~ayb.maximum-dish-list-download-duration~1`
 
-Measured with a network connection of at least 1 MBit effective throughput and an end-to-end latency of no longer than 10 ms, the Cook component takes a maximum of 10 seconds to update the complete dish list including recipes in at least 95% of all cases.
+Measured with a network connection of at least 1 MBit effective throughput and an end-to-end latency of no longer than 10 ms, the Cook component takes a maximum of 10 seconds to download the complete dish list including recipes from the CookingBook component in at least 95% of all cases.
 
 Rationale:
 
@@ -61,6 +61,8 @@ Covers:
 * `req~ayb.prepare-dish-within-three-minutes~1`
 
 Needs: dsn
+
+Tags: Cook, CookingBook
 
 > OFT: You can see that the description of this scenario is quite clunky. This is often the case with performance criteria for a number of reasons.
 
