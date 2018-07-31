@@ -23,13 +23,13 @@
       solution_strategy.md building_block_view.md
       building_block_view/MachineApplication.md runtime_view.md
       runtime_view/ordering_dishes.md runtime_view/preparing_dishes.md
-      runtime_view/paying_with_credit_card.md deployment_view.md concepts.md
-      design_decisions.md quality_scenarios.md risks.md glossary.md
-      bibliography.md</spec.files>
+      runtime_view/paying_with_credit_card.md deployment_view.md
+      concepts.md design_decisions.md quality_scenarios.md risks.md
+      glossary.md bibliography.md</spec.files>
     <!-- Do not change the properties below -->
-    <spec.source.directory>${project.basedir}/doc</spec.source.directory>
+    <spec.source.directory>${project.basedir}/src/doc</spec.source.directory>
     <spec.source.css.directory>${spec.source.directory}/css</spec.source.css.directory>
-    <spec.model.directory>${project.basedir}/uml</spec.model.directory>
+    <spec.model.directory>${project.basedir}/src/uml</spec.model.directory>
     <spec.build.html.directory>${project.build.directory}</spec.build.html.directory>
     <spec.build.uml.directory>${project.build.directory}/uml</spec.build.uml.directory>
     <spec.build.css.directory>${project.build.directory}/css</spec.build.css.directory>
@@ -101,10 +101,8 @@
             <configuration>
               <executable>pandoc</executable>
               <workingDirectory>${spec.source.directory}</workingDirectory>
-              <commandlineArgs>--from=markdown --to=html5
-                --standalone
-                --toc
-                --number-sections
+              <commandlineArgs>--from=markdown --to=html5 --standalone
+                --toc --number-sections
                 --css=${spec.source.css.directory}/spec.css
                 --lua-filter=${lua.source.directory}/link_converter.lua
                 --strip-comments

@@ -32,25 +32,32 @@ The directory structure below shows the most important parts of the project layo
 
 ```
 project root
+  |-- launch                      Eclipse launch configurations
   |
-  |-- doc                      Markdown sources of the specification
-  |    |-- css                 CSS for the HTML output
-  |   ...
-  |
-  |-- uml                      PlantUML sources for the UML model
-  |    |-- actors         
-  |    |-- classes
-  |    |-- diagrams            Sources for the UML diagrams
-  |    |     |-- activity
-  |    |     |-- class
-  |    |    ...
-  |   ...
+  |-- src
+  |    |-- doc                    Markdown sources of the specification
+  |    |    |-- css               CSS for the HTML output
+  |    |   ...
+  |    |
+  |    |-- license                License and license headers
+  |    |
+  |    |-- main
+  |    |    '-- lua               Lua filters for Pandoc
+  |    |
+  |    '-- uml                    PlantUML sources for the UML model
+  |         |-- actors         
+  |         |-- classes
+  |         |-- diagrams          Sources for the UML diagrams
+  |         |     |-- activity
+  |         |     |-- class
+  |         |    ...
+  |        ...
   |
   |-- target
-  |    |-- <spec-name>.html    Generated HTML output of the specification
-  |    '-- <spec-name>.pdf     Generated PDF
+  |    |-- <spec-name>.html       Generated HTML output of the specification
+  |    '-- <spec-name>.pdf        Generated PDF
  ...
-  '-- pom.xml                  Maven project configuration
+  '-- pom.xml                      Maven project configuration
 ```
 
 **&#9888; Be careful not to accidentally edit files in the target directory. It happens to us now and then and is each time a source of annoyance since the changes are gone with the next build run.** 
