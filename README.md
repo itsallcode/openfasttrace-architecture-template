@@ -73,9 +73,15 @@ We recommend using [Eclipse](https://eclipse.org), the built-in WikiText editor 
 
 Read the [OpenFastTrace User Guide](https://github.com/itsallcode/openfasttrace/blob/master/doc/user_guide.md) to learn how to create specifications in the OFT Markdown format.
 
-### Document Title and Authors
+### Stripping the OFT Comments
 
-Start the 
+The template contains a lot of comments in the form of Markdown quotes starting with "OFT:". You can strip them with your editors multi-file search and replace function (e.g. CRTL+H in Eclipse).
+
+Or you can use command line tools like `sed`. Run the script below on the root directory of the architecture template.
+
+```bash
+find src/doc -name '*.md' -exec sed -i -e '/^>\s*OFT:.*/d' {} \;
+```
 
 ## Building
 
