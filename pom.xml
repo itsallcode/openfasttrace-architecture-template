@@ -29,6 +29,7 @@
       runtime_view/paying_with_credit_card.md deployment_view.md
       concepts.md design_decisions.md quality_scenarios.md risks.md
       glossary.md bibliography.md</spec.files>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- Do not change the properties below -->
     <spec.source.directory>${project.basedir}/src/doc</spec.source.directory>
     <spec.source.css.directory>${spec.source.directory}/css</spec.source.css.directory>
