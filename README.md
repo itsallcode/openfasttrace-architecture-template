@@ -205,6 +205,7 @@ The rendering of html, pdf,... is controlled with maven profiles (render-html, r
 If there's no docker installation available the required tools/ dependencies described abobe need to be provided on Jenkins or at least one of its agents. 
 - `docker/Dockerfile` can be used as template for the setup of the required tools.
 - the Jenkins agents should be labeled accordingly (i.e. pandoc)
-- Jenkinsfile: the "build docker" stage has to be removed
-- Jenkinsfile: the "run docker"-part has to be removed from sh-executions
+- `Jenkinsfile` : label needs to match agent-labels (i.e. pandoc)
+- `Jenkinsfile` : the "build docker" stage has to be removed
+- `Jenkinsfile` : the "run docker"-part has to be removed from sh-executions
 
