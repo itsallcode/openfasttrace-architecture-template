@@ -5,7 +5,7 @@ pipeline {
     
     environment{
         def DOCKER_IMAGE = "jenkins-oft-arch-builder"
-        def DOCKER_REGISTRY = "consortit-docker-cme-local.jfrog.io"
+        def DOCKER_REGISTRY = ""
     }
     
     stages{
