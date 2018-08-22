@@ -188,3 +188,23 @@ linkchecker --check-extern target/*.html
 ```
 
 If you remove the command line switch `--check-extern` only local links are checked. 
+
+## Continuous Integration
+
+This project contains a CI setup for Jenkins. The build uses docker to provide a stable environment for its execution. So Jenkins needs to be able to execute docker commands.
+The build process itself is defined within `Jenkinsfile` and consists of these stages:
+- checkout : Get the source from repo
+- build docker : Create the docker image to be used during build execution (only once if it doesn't exist locally)
+- render html : render a html file from sources
+- render pdf : render a pdf file from source
+
+The rendering of html, pdf,... is controlled with maven profiles (render-html, render-pdf). To enable other/ additional formats new profiles can be defined within pom.xml.
+
+### Build without docker
+
+If there's no docker installation available the required tools/ dependencies described abobe need to be provided on Jenkins or at least one of its agents. 
+- `docker/Dockerfile` can be used as template for the setup of the required tools.
+- the Jenkins agents should be labeled accordingly (i.e. pandoc)
+- Jenkinsfile: the "build docker" stage has to be removed
+- Jenkinsfile: the "run docker"-part has to be removed from sh-executions
+
