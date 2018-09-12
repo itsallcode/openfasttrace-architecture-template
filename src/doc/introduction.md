@@ -27,7 +27,7 @@ The target audience are persons involved with the construction of the system, te
 
 ### Notational Conventions
 
-Requirements in this document are written in "Requirment enhanced Markdown format" which is the native specification format of [OpenFastTrace (OFT)](https://github.com/itsallcode/openfasttrace). If you want to learn more about this format please check the [OpenFastTrace User Guide](https://github.com/itsallcode/openfasttrace/blob/master/doc/user_guide.md).
+Requirements in this document are written in "Requirement enhanced Markdown format" which is the native specification format of [OpenFastTrace (OFT)](https://github.com/itsallcode/openfasttrace). If you want to learn more about this format please check the [OpenFastTrace User Guide](https://github.com/itsallcode/openfasttrace/blob/master/doc/user_guide.md).
 
 Using this format allows you to scan the requirement chain using OFT to see if all requirements from the user-level [System Requirement Specification (SRS)](bibliography.md#srs) are covered.
 
