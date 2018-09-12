@@ -9,9 +9,6 @@
     <url>https://github.com/itsallcode/openfasttrace-architecture-template.git</url>
     <developerConnection>itsallcode.org</developerConnection>
   </scm>
-  <issueManagement>
-    <url>https://github.com/itsallcode/openfasttrace-architecture-template/issues</url>
-  </issueManagement>
   <url>https://github.com/itsallcode/openfasttrace</url>
   <name>OpenFastTrace Architecture Template</name>
   <description>Free software requirement tracing suite</description>
