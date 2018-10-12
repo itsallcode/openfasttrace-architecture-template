@@ -20,10 +20,16 @@ If you only want to render the document to you need to install [Pandoc](https://
 apt install plantuml pandoc
 ```
 
-Since Pandoc renders PDFs with the Help of `pdflatex` you also need to install a appropriate TeX distribution. On Linux the [TeX Live](https://tug.org/texlive/) packages are typically part of the standard repositories. 
+Since Pandoc renders PDFs with the Help of `pdflatex` you also need to install a appropriate TeX distribution. On Linux the [TeX Live](https://tug.org/texlive/) packages are typically part of the standard repositories. Since PlantUML generates SVGs as vector format, we also need a converter from SVN to PDF.
 
 ```bash
-apt install plantuml pandoc texlive-latex-base
+apt install plantuml pandoc texlive-latex-base texlive-fonts-recommended librsvg2-bin
+```
+
+### On Fedora Linux
+
+```bash
+yum install plantuml pandoc texlive-schema-full librsvg2-tools
 ```
 
 ## Project Layout
