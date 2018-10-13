@@ -16,15 +16,19 @@
     <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
     <spec.version>${project.version}</spec.version>
     <spec.date>${maven.build.timestamp}</spec.date>
-    <spec.title>AutoYummiBox ${spec.version} - Software Architectural Design</spec.title>
+    <spec.title>AutoYummiBox ${spec.version} - Software
+      Architectural
+      Design</spec.title>
     <spec.authors>S. Bär, M. Thielcke</spec.authors>
     <spec.filename>SwAD-AutoYummiBox</spec.filename>
     <spec.files>architecture.md introduction.md context.md
       solution_strategy.md building_block_view.md
       building_block_view/MachineApplication.md runtime_view.md
-      runtime_view/ordering_dishes.md runtime_view/preparing_dishes.md
+      runtime_view/ordering_dishes.md
+      runtime_view/preparing_dishes.md
       runtime_view/paying_with_credit_card.md deployment_view.md
-      concepts.md design_decisions.md quality_scenarios.md risks.md
+      concepts.md design_decisions.md quality_scenarios.md
+      risks.md
       glossary.md bibliography.md</spec.files>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- Do not change the properties below -->
@@ -95,33 +99,6 @@
         </dependencies>
       </plugin>
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.6.0</version>
-        <executions>
-          <execution>
-            <id>pandoc</id>
-            <phase>compile</phase>
-            <configuration>
-              <executable>pandoc</executable>
-              <workingDirectory>${spec.source.directory}</workingDirectory>
-              <commandlineArgs>--from=markdown --to=html5 --standalone
-                --toc --number-sections
-                --css=${spec.source.css.directory}/spec.css
-                --lua-filter=${lua.source.directory}/link_converter.lua
-                --strip-comments --output=${spec.file.html}
-                --metadata=title:"${spec.title}"
-                --metadata=date:"${spec.date}"
-                --metadata=author:"${spec.authors}"
-                ${spec.files}</commandlineArgs>
-            </configuration>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <!-- See http://www.mojohaus.org/license-maven-plugin/examples/example-add-license.html -->
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>license-maven-plugin</artifactId>
@@ -175,7 +152,7 @@
         <version>3.1.0</version>
         <configuration>
           <descriptors>
-           <descriptor>${project.basedir}/src/assembly/htmldoc.xml</descriptor>
+            <descriptor>${project.basedir}/src/assembly/htmldoc.xml</descriptor>
           </descriptors>
           <finalName>${spec.filename}-${project.version}</finalName>
         </configuration>
@@ -191,4 +168,83 @@
       </plugin>
     </plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>render-pdf</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.6.0</version>
+            <executions>
+              <execution>
+                <id>pandoc-pdf</id>
+                <phase>compile</phase>
+                <configuration>
+                  <executable>pandoc</executable>
+                  <workingDirectory>${spec.source.directory}</workingDirectory>
+                  <commandlineArgs>--from=markdown --to=pdf
+                    --standalone
+                    --toc
+                    --number-sections -t latex
+                    --css=${spec.source.css.directory}/spec.css
+                    --lua-filter=${lua.source.directory}/pdf_image_path_converter.lua
+                    --strip-comments
+                    --output=${spec.file.pdf}
+                    --metadata=title:"${spec.title}"
+                    --metadata=date:"${spec.date}"
+                    --metadata=author:"${spec.authors}"
+                    ${spec.files}</commandlineArgs>
+                </configuration>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>render-html</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.6.0</version>
+            <executions>
+              <execution>
+                <id>pandoc</id>
+                <phase>compile</phase>
+                <configuration>
+                  <executable>pandoc</executable>
+                  <workingDirectory>${spec.source.directory}</workingDirectory>
+                  <commandlineArgs>--from=markdown
+                    --to=html5
+                    --standalone
+                    --toc
+                    --number-sections
+                    --css=${spec.source.css.directory}/spec.css
+                    --lua-filter=${lua.source.directory}/link_converter.lua
+                    --strip-comments --output=${spec.file.html}
+                    --metadata=title:"${spec.title}"
+                    --metadata=date:"${spec.date}"
+                    --metadata=author:"${spec.authors}"
+                    ${spec.files}</commandlineArgs>
+                </configuration>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
