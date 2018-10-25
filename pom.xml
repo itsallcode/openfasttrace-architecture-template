@@ -184,11 +184,11 @@
                 <configuration>
                   <executable>pandoc</executable>
                   <workingDirectory>${spec.source.directory}</workingDirectory>
-                  <commandlineArgs>--from=markdown --to=pdf
+                  <commandlineArgs>--from=markdown
+                    --to=latex
                     --standalone
                     --toc
-                    --number-sections -t latex
-                    --css=${spec.source.css.directory}/spec.css
+                    --number-sections
                     --lua-filter=${lua.source.directory}/pdf_image_path_converter.lua
                     --strip-comments
                     --output=${spec.file.pdf}
