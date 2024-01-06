@@ -47,7 +47,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>3.3.1</version>
         <executions>
           <execution>
             <id>copy-resources</id>
@@ -68,9 +68,9 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>com.github.jeluard</groupId>
+        <groupId>com.github.davidmoten</groupId>
         <artifactId>plantuml-maven-plugin</artifactId>
-        <version>1.2</version>
+        <version>0.2.9</version>
         <executions>
           <execution>
             <id>plantuml</id>
@@ -81,20 +81,23 @@
           </execution>
         </executions>
         <configuration>
-          <sourceFiles>
+          <sources>
             <directory>${spec.model.directory}/diagrams</directory>
             <includes>
               <include>**/*.plantuml</include>
             </includes>
-          </sourceFiles>
-          <format>svg</format>
+          </sources>
+          <formats>
+            <format>svg</format>
+          </formats>
           <outputDirectory>${spec.build.uml.directory}</outputDirectory>
+          <preserveDirectoryStructure>true</preserveDirectoryStructure>
         </configuration>
         <dependencies>
           <dependency>
             <groupId>net.sourceforge.plantuml</groupId>
             <artifactId>plantuml</artifactId>
-            <version>1.2018.8</version>
+            <version>1.2023.13</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -102,7 +105,7 @@
         <!-- See http://www.mojohaus.org/license-maven-plugin/examples/example-add-license.html -->
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>license-maven-plugin</artifactId>
-        <version>1.16</version>
+        <version>2.3.0</version>
         <configuration>
           <verbose>false</verbose>
           <detail>true</detail>
@@ -149,7 +152,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>3.6.0</version>
         <configuration>
           <descriptors>
             <descriptor>${project.basedir}/src/assembly/htmldoc.xml</descriptor>
@@ -176,7 +179,7 @@
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
-            <version>1.6.0</version>
+            <version>3.1.1</version>
             <executions>
               <execution>
                 <id>pandoc-pdf</id>
@@ -240,6 +243,26 @@
                 <goals>
                   <goal>exec</goal>
                 </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <version>3.4.1</version>
+            <executions>
+              <execution>
+                <id>enforce-maven</id>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <requireMavenVersion>
+                      <version>3.6.3</version>
+                    </requireMavenVersion>
+                  </rules>
+                </configuration>
               </execution>
             </executions>
           </plugin>
