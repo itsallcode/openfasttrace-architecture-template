@@ -1,0 +1,3 @@
+!include ../clean.skin
+skinparam CloudBorderColor LightGrey
+skinparam CloudFontColor Grey

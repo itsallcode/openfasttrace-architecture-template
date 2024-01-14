@@ -1,0 +1,20 @@
+@startuml
+!include depl.skin
+
+!include ../../nodes/AutoYummyBox.plantuml
+!include ../../nodes/PasteFactory.plantuml
+
+cloud "DataCenter" {
+	node Backend 
+}
+
+
+!include ../../nodes/CreditCardProvider.plantuml
+!include ../../nodes/VirtuCoinBuddyProvider.plantuml
+
+AutoYummyBoxNode "*" -d-  Backend
+AutoYummyBoxNode "*" -d- "2..*" CreditCardProviderNode
+Backend "*" -r- "2..*" CreditCardProviderNode : "            "
+Backend "*" -l- "2..*" VirtuCoinBuddyProviderNode : "            "
+Backend "*" -d- "2..*" PasteFactoryNode
+@enduml

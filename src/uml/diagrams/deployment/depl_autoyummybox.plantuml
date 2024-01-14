@@ -1,0 +1,64 @@
+@startuml
+!include depl.skin
+'skinparam linetype ortho
+
+node CreditCardReaderNode <<external>><<device>>
+node FoodPrinterNode <<device>>
+node PasteContainerNode <<external>><<device>>
+
+node EmbeddedARMBoard <<external>> {
+
+	node "BoardExentsion" {
+		node WirelessModem <<external>>
+		node DSLModem <<external>>
+		'DSLModem -[hidden]d- WirelessModem
+	}
+
+	node EmbeddedRTOS <<external>> {
+		!include ../../components/vendingmachine/MachineController.plantuml
+		!include ../../components/vendingmachine/UserInterface.plantuml
+		!include ../../components/vendingmachine/MachineBackendConnector.plantuml
+		!include ../../components/vendingmachine/Cook.plantuml
+		!include ../../components/foodprinter/PasteContainerConnector.plantuml
+		!include ../../components/foodprinter/FoodPrinterController.plantuml
+		!include ../../components/payment/CreditCardConnector.plantuml
+		together {
+			!include ../../components/http/HttpClient.plantuml
+			!include ../../components/payment/PaymentClient.plantuml
+		}
+		!include ../../components/payment/PaymentHandler.plantuml
+		
+		database EmbeddedDB  <<external>> {
+			artifact Recipe
+			artifact Payment
+			artifact PasteInventory
+		}
+
+		MachineController -r- MachineBackendConnector
+		MachineController -d- Cook
+		MachineController -d- PasteInventory
+		MachineController -u- FoodPrinterController
+		MachineController -u- PasteContainerConnector
+		MachineController -r- PaymentHandler
+		Cook -l- MachineBackendConnector
+		Cook -l- Recipe
+		PaymentHandler -u- CreditCardConnector
+		PaymentHandler -d- Payment
+		PaymentHandler -r- PaymentClient
+		UserInterface -r- MachineController
+		MachineBackendConnector -- HttpClient
+		PaymentClient -r- HttpClient
+	}
+	
+
+	HttpClient -d- "2" WirelessModem : SPI
+	HttpClient -d- "2" DSLModem : SPI
+	
+}
+
+
+FoodPrinterController -u- FoodPrinterNode : Ethernet
+PasteContainerConnector -u- "15" PasteContainerNode : I²C
+CreditCardConnector -u- CreditCardReaderNode : SPI
+
+@enduml

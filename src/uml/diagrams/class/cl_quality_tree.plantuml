@@ -1,0 +1,17 @@
+@startuml
+!include ../clean.skin
+left to right direction
+
+class Utility
+
+Utility --> Usability
+Utility --> Efficiency
+Utility --> Reliability
+Utility --> Maintainability
+Utility --> Portability
+Efficiency --> Performance
+Efficiency --> "Resource Usage"
+Efficiency --> Scalability
+Reliability --> Availability
+
+@enduml

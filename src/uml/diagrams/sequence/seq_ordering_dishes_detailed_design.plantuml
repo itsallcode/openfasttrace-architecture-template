@@ -1,0 +1,51 @@
+@startuml
+!include seq.skin
+
+!include ../../actors/Customer.plantuml
+box "MachineApplication"
+	!include ../../participants/vendingmachine/UserInterface.plantuml
+	!include ../../participants/vendingmachine/MachineController.plantuml
+	!include ../../participants/vendingmachine/Cook.plantuml
+	!include ../../participants/foodprinter/PasteContainerConnector.plantuml
+end box
+!include ../../participants/foodprinter/PasteContainer.plantuml
+
+Customer -> UserInterface : listDishes()
+activate UserInterface
+UserInterface -> MachineController : listDishes()
+activate MachineController
+MachineController -> PasteContainerConnector : getInventory()
+activate PasteContainerConnector
+
+loop each pasteContainer
+	PasteContainerConnector -> PasteContainer : getPasteType()
+	activate PasteContainer
+	PasteContainer -->> PasteContainerConnector : pasteType
+	deactivate PasteContainer
+	PasteContainerConnector -> PasteContainer : getFillLevel()
+	activate PasteContainer
+	PasteContainer -->> PasteContainerConnector : fillLevel
+	deactivate PasteContainer
+end loop
+
+PasteContainerConnector -->> MachineController : pasteInventory
+deactivate PasteContainerConnector
+MachineController -> Cook : filterDishes(pasteInventory)
+activate Cook
+
+loop each recipe
+	Cook -> Cook : canPrepare(recipe,\npasteInvertory)
+	activate Cook
+	deactivate Cook
+end loop
+
+Cook -->> MachineController : dishes
+deactivate Cook
+MachineController -->> UserInterface : dishes
+deactivate MachineController
+UserInterface -> UserInterface : renderDishList(dishes)
+activate UserInterface 
+deactivate UserInterface
+UserInterface -->> Customer : dishList 
+deactivate UserInterface
+@enduml

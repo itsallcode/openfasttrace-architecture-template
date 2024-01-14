@@ -1,0 +1,5 @@
+!include ../clean.skin
+hide footbox
+skinparam ParticipantPadding 10
+skinparam BoxPadding 10
+skinparam SequenceBoxBackgroundColor WhiteSmoke

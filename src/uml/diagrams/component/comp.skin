@@ -1,0 +1,2 @@
+!include ../clean.skin
+!pragma horizontalLineBetweenDifferentPackageAllowed
