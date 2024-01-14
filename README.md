@@ -1,4 +1,4 @@
-# openfasttrace-architecture-template
+# OpenFastTrace Architecture Template
 
 Template for system and software architecture done with OpenFastTrace.
 
@@ -9,7 +9,11 @@ The architecture documents structure is based the the [arc42](https://arc42.org)
 The [arc42 template](https://github.com/arc42/arc42-template) is offered under the [CC-BY-SA](LICENSE.txt). Please keep attributions in all derived works.
 
 This build automatically includes license headers in the Markdown files for that reasons. See ["Automatic License Headers"](#automatic-license-headers) for details.
- 
+
+## Change Log
+
+* [Change log](doc/changelog.md)
+
 ## Installation
 
 ### On Debian / Ubuntu Linux
