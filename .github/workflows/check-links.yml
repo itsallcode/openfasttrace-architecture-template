@@ -30,6 +30,10 @@ jobs:
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 24
+      - name: Allow the Chromium sandbox
+        # linkspector uses a headless Chromium via Puppeteer. Ubuntu 24.04 restricts unprivileged user
+        # namespaces via AppArmor, which makes Chromium fail with "No usable sandbox".
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
       - name: Run linkspector
         # Runs the CLI directly instead of umbrelladocs/action-linkspector, because the organization's Actions policy
         # only allows actions from GitHub and verified creators
