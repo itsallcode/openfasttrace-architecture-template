@@ -17,7 +17,7 @@
 
 > OFT: arc42 recommends two sub-sections here: "Business Context" and "Technical Context". If you have a separate System Requirement Specification (SRS), the "Business Context" is better kept there since it is part of the user domain. Of course referencing it from here is a good idea.
 
-For information about the uers's point of view on the system context please refer to the [OFTAutoYummi System Requirement Specification (SRS)](bibliography.md#SRS).
+For information about the uers's point of view on the system context please refer to the [OFTAutoYummi System Requirement Specification (SRS)](bibliography.md#srs).
 
 ## Technical Context
 
@@ -37,7 +37,7 @@ The Customers in OFTAutoYummi are people using the vending machine to purchase d
 
 #### Mechatronic Technician
 
-Mechatronic Technicians are responsible for repairing defect [AutoYummiBoxes](glossary.md#autoyummibox). The need in-depth knowledge of electronics, 3D printer mechanics and food engineering. They also get regular trainings on updated versions of the AutoYummiBox. Due to their specific skill set Mechatronics Technicians are more expensive than [Machine Maintainers](#machine-maintainer). The project also employs fewer of them since the need for repairs should be a lot less frequent than for refilling and cleaning.
+Mechatronic Technicians are responsible for repairing defect [AutoYummiBoxes](glossary.md#autoyummybox). The need in-depth knowledge of electronics, 3D printer mechanics and food engineering. They also get regular trainings on updated versions of the AutoYummiBox. Due to their specific skill set Mechatronics Technicians are more expensive than [Machine Maintainers](#machine-maintainer). The project also employs fewer of them since the need for repairs should be a lot less frequent than for refilling and cleaning.
 
 #### Machine Maintainer
 
@@ -47,7 +47,7 @@ Machine Maintainers are responsible for keeping the AutoYummiBoxes clean and sto
 
 > OFT: Neighboring systems are project-external technical systems that are attached to your system or that your system attaches to. Systems run by the same company which are outside of the responsibility of this project also count as external.
 
-> OFT: arc42 suggests listing technical details about the communication channels to the neighboring systems. We recommend that you do not go to this level of detail here since in a non-trivial system interface descriptions go beyond the scope of a simple system context, often involving painful architectural decisions between available communication options. Those details are better kept in the [Building Block View](building_block_view.md) and [Deployment View](deployment.md) chapter. Also keep in mind that the context chapter is often read by management and needs to be on an abstraction level managers are able to follow.
+> OFT: arc42 suggests listing technical details about the communication channels to the neighboring systems. We recommend that you do not go to this level of detail here since in a non-trivial system interface descriptions go beyond the scope of a simple system context, often involving painful architectural decisions between available communication options. Those details are better kept in the [Building Block View](building_block_view.md) and [Deployment View](deployment_view.md) chapter. Also keep in mind that the context chapter is often read by management and needs to be on an abstraction level managers are able to follow.
 
 #### Payment Provider
 

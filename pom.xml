@@ -22,7 +22,7 @@
       Design</spec.title>
     <spec.authors>S. Bär, M. Thielcke</spec.authors>
     <spec.filename>SwAD-AutoYummiBox</spec.filename>
-    <spec.files>architecture.md introduction.md context.md
+    <spec.files>architecture.md introduction.md context.md constraints.md
       solution_strategy.md building_block_view.md
       building_block_view/MachineApplication.md runtime_view.md
       runtime_view/ordering_dishes.md
@@ -196,6 +196,7 @@
                     --standalone
                     --toc
                     --number-sections
+                    --lua-filter=${lua.source.directory}/image_path_converter.lua
                     --strip-comments
                     --output=${spec.file.pdf}
                     --metadata=title:"${spec.title}"
@@ -239,6 +240,7 @@
                     --number-sections
                     --css=${spec.source.css.directory}/spec.css
                     --lua-filter=${lua.source.directory}/link_converter.lua
+                    --lua-filter=${lua.source.directory}/image_path_converter.lua
                     --strip-comments
                     --output=${spec.file.html}
                     --metadata=title:"${spec.title}"

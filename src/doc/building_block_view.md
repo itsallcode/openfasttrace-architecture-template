@@ -61,7 +61,7 @@ This section contains the building block breakdown on the highest level.
 
 > OFT: If you want to make sure the components you define in this architecture appear in the actual detailed designs (and in the implementations) we recommend that you create one specification item for each internal component and require coverage on detailed design level (here `dsn`). Of course you should talk the component breakdown through with the implementing teams in order to get their agreement. Otherwise you will end up with a nice architecture document that nobody cares about.
 
-> OFT: We use tags in the specification items to allow filtering. This helps splitting the workload between multiple development teams since each team can define tag filters to check coverage for the components they are responsible for. Check the [OFT User Guide](https://github.com/itsallcode/openfasttrace/blob/master/doc/user_guide.md) to learn more about tag filters.
+> OFT: We use tags in the specification items to allow filtering. This helps splitting the workload between multiple development teams since each team can define tag filters to check coverage for the components they are responsible for. Check the [OFT User Guide](https://github.com/itsallcode/openfasttrace/blob/main/doc/user_guide/user_guide.md) to learn more about tag filters.
 
 ### AutoYummyBox
 

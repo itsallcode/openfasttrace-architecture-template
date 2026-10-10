@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Rendered UML diagrams are now committed to `src/doc/uml`, so that they also show up when browsing the Markdown sources on GitHub. [#12](https://github.com/itsallcode/openfasttrace-architecture-template/issues/12)
-- GitHub Actions workflows build the HTML and PDF documents, verify that the committed diagrams are up to date, and lint the Markdown files (markdownlint, textlint, Vale) and this changelog (heylogs).
+- GitHub Actions workflows build the HTML and PDF documents, verify that the committed diagrams are up to date, lint the Markdown files (markdownlint, textlint, Vale) and this changelog (heylogs), and check the links (linkspector).
 - Dependabot keeps the Maven plugins, GitHub Actions, npm packages, and the Docker base image up to date.
 - Maven wrapper (`mvnw`), so that no Maven installation is required.
 - `.editorconfig` for consistent formatting.
@@ -27,6 +27,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Eclipse project files and launch configurations.
 - Jenkins pipeline; the build runs on GitHub Actions instead.
+
+### Fixed
+
+- Broken links in the specification sources (wrong file names, anchors and relative paths, moved OpenFastTrace user guide).
+- Added the missing "Constraints" chapter that the table of contents already linked to.
 
 ## [1.0.0] - 2024-01-14
 

@@ -97,7 +97,7 @@ For authoring any text editor will work.
 
 We recommend an editor with Markdown and PlantUML support, for example [Visual Studio Code](https://code.visualstudio.com/) with the [PlantUML extension](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml), [IntelliJ IDEA](https://www.jetbrains.com/idea/) with the [PlantUML Integration plugin](https://plugins.jetbrains.com/plugin/7017-plantuml-integration) or [Eclipse](https://eclipse.org) with the [Eclipse PlantUML plug-in](https://plantuml.com/eclipse).
 
-Read the [OpenFastTrace User Guide](https://github.com/itsallcode/openfasttrace/blob/main/doc/user_guide.md) to learn how to create specifications in the OFT Markdown format.
+Read the [OpenFastTrace User Guide](https://github.com/itsallcode/openfasttrace/blob/main/doc/user_guide/user_guide.md) to learn how to create specifications in the OFT Markdown format.
 
 ### Stripping the OFT Comments
 
@@ -128,13 +128,15 @@ The CI build fails if the committed diagrams are out of date.
 The Markdown files are checked with [markdownlint](https://github.com/DavidAnson/markdownlint) (configuration in [`.markdownlint.yml`](.markdownlint.yml)). To check locally run:
 
 ```bash
-npx markdownlint-cli2 "**/*.md" "#node_modules"
+npm ci
+npm run markdownlint
 ```
+
+`npm run markdownlint:fix` fixes most findings automatically.
 
 Spelling and style are checked with [textlint](https://textlint.org/) and [Vale](https://vale.sh/). These checks only report hints and do not fail the build. To run textlint locally:
 
 ```bash
-npm ci
 npm run textlint
 ```
 
@@ -240,21 +242,11 @@ To render a PDF instead of HTML, activate the `render-pdf` profile:
 
 It is a good idea to check the links in your document from time to time.
 
-### Under Debian / Ubuntu
-
-Install the `linkchecker` package:
+The links in the Markdown sources are checked with [linkspector](https://github.com/UmbrellaDocs/linkspector) (configuration in [`.linkspector.yml`](.linkspector.yml)). The CI runs it on every pull request and once a month, so that dead external links are noticed. To check locally run:
 
 ```bash
-apt install linkchecker
+npx @umbrelladocs/linkspector check
 ```
-
-Check the links in the generated HTML documents:
-
-```bash
-linkchecker --check-extern target/*.html
-```
-
-If you remove the command line switch `--check-extern` only local links are checked.
 
 ## Continuous Integration
 

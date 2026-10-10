@@ -13,7 +13,7 @@
 
 > OFT: Readers are lazy, so it is best not to assume that they read the feature description in the SRS. You should at least
 
-This section explains how [Customers](../introduction#customer) order dishes at the AutoYummyBox. This includes finding out which dishes AutoYummiBox can [prepare](preparing_dishes.md) given the available [pastes](../glossary.md#paste) and their remaining amounts.
+This section explains how [Customers](../context.md#customer) order dishes at the AutoYummyBox. This includes finding out which dishes AutoYummiBox can [prepare](preparing_dishes.md) given the available [pastes](../glossary.md#paste) and their remaining amounts.
 
 > OFT: Next we recommend that you outline what happens in a behavioral chart. If unsure which one to pick, start with a sequence chart.
 
@@ -21,12 +21,12 @@ This section explains how [Customers](../introduction#customer) order dishes at 
 
 > OFT: The diagram below has three different responsible parties: the Customer (who does not have to implement anything), the MachineApplication which we assume is in the responsibility of a dedicated development team and the PasteContainer which is a delivery you get from a supplier. Your job as a system architect is to make sure all teams have the necessary information to get their parts running together as one system in the end.
 
-![Ordering dishes](uml/sequence/seq_ordering_dishes.svg "Ordering dishes")
+![Ordering dishes](../uml/sequence/seq_ordering_dishes.svg "Ordering dishes")
 
 > OFT: For comparison here the detailed design that shows the inner workings of the MachineApplication.
 
 <div style="background: lavenderblush;">
-![Ordering dishes -- detailed design](uml/sequence/seq_ordering_dishes_detailed_design.svg "Ordering dishes -- detailed design")
+![Ordering dishes -- detailed design](../uml/sequence/seq_ordering_dishes_detailed_design.svg "Ordering dishes -- detailed design")
 </div>
 
 > OFT: As you can see there is a lot of internal details that does not necessarily need to appear in the SwAD.

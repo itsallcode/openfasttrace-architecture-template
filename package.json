@@ -1,12 +1,15 @@
 {
   "name": "openfasttrace-architecture-template",
   "private": true,
-  "description": "Prose linting (textlint) for the Markdown sources, see .github/workflows/lint.yml",
+  "description": "Markdown linting (markdownlint, textlint) for the Markdown sources, see .github/workflows/lint.yml",
   "devDependencies": {
+    "markdownlint-cli2": "^0.23.3",
     "textlint": "^15.8.0",
     "textlint-rule-common-misspellings": "^1.0.1"
   },
   "scripts": {
+    "markdownlint": "markdownlint-cli2 \"**/*.md\"",
+    "markdownlint:fix": "markdownlint-cli2 --fix \"**/*.md\"",
     "textlint": "textlint -f github \"**/*.md\""
   }
 }

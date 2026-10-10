@@ -13,3 +13,7 @@ MD033:
 
 # Specification files start with a license header comment, and sub-chapters start with h2
 MD041: false
+
+# CHANGELOG.md repeats "Added", "Changed", "Fixed" under each release (Keep a Changelog)
+MD024:
+  siblings_only: true

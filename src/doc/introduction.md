@@ -13,7 +13,7 @@
 
 > OFT: start with a general introduction of your product / project here. Choose a detail level that allows first-time readers of your document whether or not the content is interesting for them.
 
-OFTAutoYummi is a system of instant food vending machines and the necessary IT backend. The machines are 3D printers that create preprogrammed dishes from a set of [pastes](../glossary.md#paste) that are stored as raw materials in the machine.
+OFTAutoYummi is a system of instant food vending machines and the necessary IT backend. The machines are 3D printers that create preprogrammed dishes from a set of [pastes](glossary.md#paste) that are stored as raw materials in the machine.
 
 OFTAutoYummi uses a backend connection via the Internet to report fill level of the paste containers, health status of the machines and payment services.
 
@@ -27,7 +27,7 @@ The target audience are persons involved with the construction of the system, te
 
 ### Notational Conventions
 
-Requirements in this document are written in "Requirement enhanced Markdown format" which is the native specification format of [OpenFastTrace (OFT)](https://github.com/itsallcode/openfasttrace). If you want to learn more about this format please check the [OpenFastTrace User Guide](https://github.com/itsallcode/openfasttrace/blob/master/doc/user_guide.md).
+Requirements in this document are written in "Requirement enhanced Markdown format" which is the native specification format of [OpenFastTrace (OFT)](https://github.com/itsallcode/openfasttrace). If you want to learn more about this format please check the [OpenFastTrace User Guide](https://github.com/itsallcode/openfasttrace/blob/main/doc/user_guide/user_guide.md).
 
 Using this format allows you to scan the requirement chain using OFT to see if all requirements from the user-level [System Requirement Specification (SRS)](bibliography.md#srs) are covered.
 
@@ -70,11 +70,11 @@ This has two advantages:
 
 > OFT: Generally speaking though the arc42 template contains this section, we do recommend to keep these requirements in a separate document since the life cycle and responsible persons are different for system requirements and system architecture.
 
-See [OFTAutoYummy System Requirement Specification](../bibliography.md#srs)
+See [OFTAutoYummy System Requirement Specification](bibliography.md#srs)
 
 ## Quality Goals
 
-> OFT: The arc42 template suggests that you list your most important quality goals here. Limit yourself to not more than five since you still have plenty of opportunity to add quality details in the chapter ["Quality Scenarios"](../quality_scenarios/quality_scenarios.md)
+> OFT: The arc42 template suggests that you list your most important quality goals here. Limit yourself to not more than five since you still have plenty of opportunity to add quality details in the chapter ["Quality Scenarios"](quality_scenarios.md)
 
 OFTAutoYummi's main quality goals are in descending order of importance:
 
@@ -95,7 +95,7 @@ This section list the target audience of the system architecture and their inter
 
 > OFT: Hint: always use plural when referring to roles. This keeps your specifications gender-neutral especially when using pronouns.
 
-For a list of OFTAutoYummi's stakeholder contacts and their responsibilities please refer to the [OAY-ORGA](../bibilography.md#oay-orga).
+For a list of OFTAutoYummi's stakeholder contacts and their responsibilities please refer to the [OAY-ORGA](bibliography.md#oay-orga).
 
 > OFT: Usually only certain chapters are interesting for an individual project role. You can help your readers finding the relevant information more quickly by listing the chapters they should read.
 
@@ -109,7 +109,7 @@ Recommended reading:
 * [Context](context.md)
 * [Constraints](constraints.md)
 * [Building Block View](building_block_view.md)
-* [Runtime View](runtime.md)
+* [Runtime View](runtime_view.md)
 * [Concepts](concepts.md)
 * [Design Decisions](design_decisions.md)
 * [Quality Scenarios](quality_scenarios.md)
@@ -155,7 +155,7 @@ Recommended reading:
 * [Context](context.md)
 * [Constraints](constraints.md)
 * [Building Block View](building_block_view.md)
-* [Runtime View](runtime.md)
+* [Runtime View](runtime_view.md)
 * [Concepts](concepts.md)
 * [Quality Scenarios](quality_scenarios.md)
 

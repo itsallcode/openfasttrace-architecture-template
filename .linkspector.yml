@@ -1,0 +1,25 @@
+# Configuration for linkspector (https://github.com/UmbrellaDocs/linkspector)
+dirs:
+  - .
+excludedDirs:
+  - ./node_modules
+  - ./target
+  - ./.github/styles
+useGitIgnore: true
+modifiedFilesOnly: false
+ignorePatterns:
+  # gnu.org throttles automated requests, which leads to timeouts
+  - pattern: "^https?://(www\\.)?gnu\\.org"
+  # Example domains used in the specification
+  - pattern: "^https?://(www\\.)?example\\.(com|org|net)"
+  # localhost links
+  - pattern: "^https?://localhost"
+aliveStatusCodes:
+  - 200
+  - 204
+  - 301
+  - 302
+  - 307
+  - 308
+  - 403
+  - 429
