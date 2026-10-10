@@ -1,0 +1,83 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Render HTML and PDF
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          show-progress: false
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Build the build-environment image
+        uses: docker/build-push-action@v7
+        with:
+          context: docker
+          load: true
+          tags: oft-arch-builder:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Cache Maven repository and wrapper distribution
+        uses: actions/cache@v6
+        with:
+          path: ~/.m2
+          key: maven-${{ hashFiles('pom.xml', '.mvn/wrapper/maven-wrapper.properties') }}
+          restore-keys: |
+            maven-
+
+      - name: Render HTML and package archives
+        run: >
+          docker run --rm
+          -v "$PWD:/workspace"
+          -v "$HOME/.m2:/root/.m2"
+          oft-arch-builder
+          ./mvnw -B -ntp clean package
+
+      - name: Render PDF
+        run: >
+          docker run --rm
+          -v "$PWD:/workspace"
+          -v "$HOME/.m2:/root/.m2"
+          oft-arch-builder
+          ./mvnw -B -ntp compile -P render-pdf
+
+      - name: Check that the committed diagrams are up to date
+        # The build renders the PlantUML sources to src/doc/uml.
+        # If anything changed, the SVGs in git are stale: re-run "./mvnw generate-resources" and commit the result.
+        run: |
+          if [ -n "$(git status --porcelain -- src/doc/uml)" ]; then
+            echo "::error::The rendered diagrams in src/doc/uml are out of date. Run './mvnw generate-resources' and commit the changes."
+            git status --porcelain -- src/doc/uml
+            git diff --stat -- src/doc/uml
+            exit 1
+          fi
+
+      - name: Upload rendered documents
+        uses: actions/upload-artifact@v7
+        with:
+          name: documents
+          path: |
+            target/*.html
+            target/*.pdf
+            target/*.zip
+            target/*.tar.gz
+          if-no-files-found: error

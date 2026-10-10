@@ -32,9 +32,11 @@ This section describes the terms "menu", "dish" and "recipe" and their relations
 ![Menu, dishes and recipes](uml/class/cl_dishes.svg "Menu, dishes and recipes")
 
 #### Dishes
+
 `arch~ayb.dishes~2`
 
 Dishes have the following attributes:
+
 * name (String)
 * price (MonetaryAmount)
 * recipe (Recipe)
@@ -51,6 +53,7 @@ Needs: dsn
 Tags: Cook, CookingBook
 
 #### Recipe
+
 `arch~ayb.recipe~1`
 
 A Recipe is a series of steps to cook a Dish.

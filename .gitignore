@@ -1,2 +1,18 @@
+# Maven build output
 /target/
+
+# Local Markdown previews
 **/*.md.html
+
+# Node.js (textlint)
+/node_modules/
+
+# Vale downloads its style packages here (see .vale.ini)
+/.github/styles/
+
+# IDEs
+/.idea/
+/.vscode/
+/.project
+/.classpath
+/.settings/

@@ -1,5 +1,8 @@
 # OpenFastTrace Architecture Template
 
+[![Build](https://github.com/itsallcode/openfasttrace-architecture-template/actions/workflows/build.yml/badge.svg)](https://github.com/itsallcode/openfasttrace-architecture-template/actions/workflows/build.yml)
+[![Lint](https://github.com/itsallcode/openfasttrace-architecture-template/actions/workflows/lint.yml/badge.svg)](https://github.com/itsallcode/openfasttrace-architecture-template/actions/workflows/lint.yml)
+
 Template for system and software architecture done with OpenFastTrace.
 
 ## Acknowledgments
@@ -12,43 +15,56 @@ This build automatically includes license headers in the Markdown files for that
 
 ## Change Log
 
-* [Change log](doc/changelog.md)
+* [Change log](CHANGELOG.md)
 
 ## Installation
 
+The build needs a Java Runtime (17 or later), [Pandoc](https://pandoc.org) and [Graphviz](https://graphviz.org) (used by [PlantUML](https://plantuml.com) for rendering UML diagrams).
+Maven is downloaded automatically by the Maven wrapper (`mvnw`).
+
+Since Pandoc renders PDFs with the help of LuaLaTeX you also need to install an appropriate TeX distribution. On Linux the [TeX Live](https://tug.org/texlive/) packages are typically part of the standard repositories. Since PlantUML generates SVGs as vector format, we also need a converter from SVG to PDF.
+
 ### On Debian / Ubuntu Linux
 
-If you only want to render the document to you need to install [Pandoc](https://pandoc.org). UML diagrams are rendered with [PlantUML](https://plantuml.com).
-
 ```bash
-apt install plantuml pandoc
-```
-
-Since Pandoc renders PDFs with the Help of `pdflatex` you also need to install a appropriate TeX distribution. On Linux the [TeX Live](https://tug.org/texlive/) packages are typically part of the standard repositories. Since PlantUML generates SVGs as vector format, we also need a converter from SVN to PDF.
-
-```bash
-apt install plantuml pandoc texlive-latex-base texlive-fonts-recommended librsvg2-bin
+apt install default-jre-headless graphviz pandoc texlive-luatex texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended lmodern librsvg2-bin
 ```
 
 ### On Fedora Linux
 
 ```bash
-yum install plantuml pandoc texlive-schema-full librsvg2-tools
+yum install java-latest-openjdk-headless graphviz pandoc texlive-scheme-full librsvg2-tools
+```
+
+### Using Docker
+
+If you don't want to install the tools, you can use the Docker image defined in [`docker/Dockerfile`](docker/Dockerfile). It is based on the [official Pandoc image with LaTeX](https://hub.docker.com/r/pandoc/latex), contains everything needed to run the build and is also used by the [Continuous Integration](#continuous-integration).
+
+```bash
+docker build -t oft-arch-builder docker
+docker run --rm -v "$PWD:/workspace" -v "$HOME/.m2:/root/.m2" oft-arch-builder ./mvnw -B clean package
+docker run --rm -v "$PWD:/workspace" -v "$HOME/.m2:/root/.m2" oft-arch-builder ./mvnw -B compile -P render-pdf
 ```
 
 ## Project Layout
 
 The directory structure below shows the most important parts of the project layout and what they mean.
 
-```
+```text
 project root
-  |-- launch                     Eclipse launch configurations
+  |-- .github
+  |    |-- workflows             GitHub Actions workflows (build and lint)
+  |    '-- dependabot.yml        Automatic dependency updates
+  |
+  |-- docker
+  |    '-- Dockerfile            Build environment with all tools
   |
   |-- src
   |    |-- assembly              Configuration for creating archives (TAR, ZIP)
   |    |
   |    |-- doc                   Markdown sources of the specification
   |    |    |-- css              CSS for the HTML output
+  |    |    |-- uml              Rendered UML diagrams (generated, but committed)
   |    |   ...
   |    |
   |    |-- license               License and license headers
@@ -57,7 +73,7 @@ project root
   |    |    '-- lua              Lua filters for Pandoc
   |    |
   |    '-- uml                   PlantUML sources for the UML model
-  |         |-- actors         
+  |         |-- actors
   |         |-- classes
   |         |-- diagrams         Sources for the UML diagrams
   |         |     |-- activity
@@ -69,29 +85,60 @@ project root
   |    |-- <spec-name>.html      Generated HTML output of the specification
   |    '-- <spec-name>.pdf       Generated PDF
  ...
+  |-- CHANGELOG.md               Change log in "Keep a Changelog" format
   '-- pom.xml                    Maven project configuration
 ```
 
-**&#9888; Be careful not to accidentally edit files in the target directory. It happens to us now and then and is each time a source of annoyance since the changes are gone with the next build run.** 
-
+**&#9888; Be careful not to accidentally edit files in the target directory. It happens to us now and then and is each time a source of annoyance since the changes are gone with the next build run.**
 
 ## Authoring
 
 For authoring any text editor will work.
 
-We recommend using [Eclipse](https://eclipse.org), the built-in WikiText editor for [Markdown](https://daringfireball.net/projects/markdown/) and the [Eclipse PlantUML plug-in](http://plantuml.com/eclipse).
+We recommend an editor with Markdown and PlantUML support, for example [Visual Studio Code](https://code.visualstudio.com/) with the [PlantUML extension](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml), [IntelliJ IDEA](https://www.jetbrains.com/idea/) with the [PlantUML Integration plugin](https://plugins.jetbrains.com/plugin/7017-plantuml-integration) or [Eclipse](https://eclipse.org) with the [Eclipse PlantUML plug-in](https://plantuml.com/eclipse).
 
-Read the [OpenFastTrace User Guide](https://github.com/itsallcode/openfasttrace/blob/master/doc/user_guide.md) to learn how to create specifications in the OFT Markdown format.
+Read the [OpenFastTrace User Guide](https://github.com/itsallcode/openfasttrace/blob/main/doc/user_guide.md) to learn how to create specifications in the OFT Markdown format.
 
 ### Stripping the OFT Comments
 
-The template contains a lot of comments in the form of Markdown quotes starting with "OFT:". You can strip them with your editors multi-file search and replace function (e.g. CRTL+H in Eclipse).
+The template contains a lot of comments in the form of Markdown quotes starting with "OFT:". You can strip them with your editors multi-file search and replace function.
 
 Or you can use command line tools like `sed`. Run the script below on the root directory of the architecture template.
 
 ```bash
 find src/doc -name '*.md' -exec sed -i -e '/^>\s*OFT:.*/d' {} \;
 ```
+
+### UML Diagrams
+
+The UML diagrams are written in [PlantUML](https://plantuml.com) and live in `src/uml`. The sources of the diagrams that are embedded in the document are in `src/uml/diagrams`.
+
+The build renders them to SVG files in `src/doc/uml`. These rendered files are committed to the repository, so that the diagrams are also shown when you browse the Markdown sources on GitHub.
+
+**&#9888; After changing a diagram source, re-render the diagrams and commit the result:**
+
+```bash
+./mvnw generate-resources
+```
+
+The CI build fails if the committed diagrams are out of date.
+
+### Linting
+
+The Markdown files are checked with [markdownlint](https://github.com/DavidAnson/markdownlint) (configuration in [`.markdownlint.yml`](.markdownlint.yml)). To check locally run:
+
+```bash
+npx markdownlint-cli2 "**/*.md" "#node_modules"
+```
+
+Spelling and style are checked with [textlint](https://textlint.org/) and [Vale](https://vale.sh/). These checks only report hints and do not fail the build. To run textlint locally:
+
+```bash
+npm ci
+npm run textlint
+```
+
+The change log is checked with [heylogs](https://github.com/nbbrd/heylogs) to adhere to the [Keep a Changelog](https://keepachangelog.com/) format.
 
 ## Building
 
@@ -100,12 +147,12 @@ find src/doc -name '*.md' -exec sed -i -e '/^>\s*OFT:.*/d' {} \;
 | Dependency                                                                              | Purpose                | License                                                                |
 |-----------------------------------------------------------------------------------------|------------------------|------------------------------------------------------------------------|
 | [Assembly Maven plugin](https://maven.apache.org/plugins/maven-assembly-plugin/)        | Pack into archive      | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
-| [Copy resources Maven plugin](https://maven.apache.org/plugins/maven-resources-plugin/) | Copy original files    | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |              |
+| [Enforcer Maven plugin](https://maven.apache.org/enforcer/maven-enforcer-plugin/)       | Check tool versions    | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
 | [Exec Maven plugin](https://www.mojohaus.org/exec-maven-plugin/)                        | Running Pandoc         | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
-| [License Maven plugin](http://www.mojohaus.org/license-maven-plugin/)                   | Adding license headers | [GPL v3.0](http://www.gnu.org/licenses/quick-guide-gplv3.html)         |
+| [License Maven plugin](https://www.mojohaus.org/license-maven-plugin/)                  | Adding license headers | [GPL v3.0](https://www.gnu.org/licenses/quick-guide-gplv3.html)        |
 | [Maven](https://maven.apache.org/)                                                      | Build                  | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
-| [Pandoc](https://pandoc.org)                                                            | Document rendering     | [GPL v3.0](http://www.gnu.org/licenses/quick-guide-gplv3.html)         |
-| [PlantUML Maven plugin](https://github.com/jeluard/maven-plantuml-plugin)               | Diagram rendering      | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
+| [Pandoc](https://pandoc.org)                                                            | Document rendering     | [GPL v3.0](https://www.gnu.org/licenses/quick-guide-gplv3.html)        |
+| [PlantUML Maven plugin](https://github.com/davidmoten/plantuml-maven-plugin)            | Diagram rendering      | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) |
 
 ### Configuration
 
@@ -150,7 +197,7 @@ The Maven build automatically checks whether all markdown files have a license h
 Run the following Maven command to create or update the file headers:
 
 ```bash
-mvn license:update-project-license license:update-file-header
+./mvnw license:update-project-license license:update-file-header
 ```
 
 ### Conversion
@@ -161,22 +208,32 @@ On the other hand you of course want the links to work properly when converting 
 
 Check the following [Lua](https://www.lua.org/) file to see how the original links between the source Markdown files are converted to the target format.
 
-    src/main/lua/link_converter.lua
+```text
+src/main/lua/link_converter.lua
+```
 
 The filter is applied via the `--lua-filters` command line switch.
+
+The HTML output is self-contained: Pandoc embeds the CSS and the SVG diagrams into the HTML file (`--embed-resources`), so you can share the single file.
 
 ### Running the Build
 
 If you only want to render the document and UML source into HTML and images run:
 
 ```bash
-mvn compile
+./mvnw compile
 ```
 
 To create archives from the rendered documents run:
 
 ```bash
-mvn package
+./mvnw package
+```
+
+To render a PDF instead of HTML, activate the `render-pdf` profile:
+
+```bash
+./mvnw compile -P render-pdf
 ```
 
 ## Validation
@@ -191,31 +248,21 @@ Install the `linkchecker` package:
 apt install linkchecker
 ```
 
-Check the links in the generated HTML docuements:
+Check the links in the generated HTML documents:
 
 ```bash
 linkchecker --check-extern target/*.html
 ```
 
-If you remove the command line switch `--check-extern` only local links are checked. 
+If you remove the command line switch `--check-extern` only local links are checked.
 
 ## Continuous Integration
 
-This project contains a CI setup for Jenkins. The build uses [Docker](https://www.docker.com/) to provide a stable environment for its execution. So Jenkins needs to be able to execute Docker commands.
-The build process itself is defined within `Jenkinsfile` and consists of these stages:
-- checkout : Get the source from repo
-- build docker : Create the Docker image to be used during build execution (only once if it doesn't exist locally)
-- render html : render a HTML file from sources
-- render pdf : render a PDF file from source
+This project contains a CI setup for [GitHub Actions](https://docs.github.com/en/actions) in [`.github/workflows`](.github/workflows):
 
-The rendering of HTML, PDF,... is controlled with Maven profiles (`render-html`, `render-pdf`). To enable other/ additional formats new profiles can be defined within `pom.xml`.
+* `build.yml`: builds the Docker image from [`docker/Dockerfile`](docker/Dockerfile), renders the HTML and PDF documents inside the container, verifies that the committed UML diagrams are up to date and uploads the rendered documents as build artifacts.
+* `lint.yml`: runs markdownlint, textlint, Vale and heylogs (see ["Linting"](#linting)).
 
-### Build without Docker
+The rendering of HTML, PDF, ... is controlled with Maven profiles (`render-html`, `render-pdf`). To enable other / additional formats new profiles can be defined within `pom.xml`.
 
-If there is no Docker installation available the required tools/ dependencies described above need to be provided on Jenkins or at least one of its agents. 
-- [docker/Dockerfile](docker/Dockerfile) can be used as template for the setup of the required tools.
-- the Jenkins agents should be labeled accordingly (i.e. pandoc)
-- `Jenkinsfile` : label needs to match agent-labels (i.e. pandoc)
-- `Jenkinsfile` : the "build docker" stage has to be removed
-- `Jenkinsfile` : the "run docker"-part has to be removed from sh-executions
-
+[Dependabot](https://docs.github.com/en/code-security/dependabot) keeps the Maven plugins, GitHub Actions, npm packages and the Docker base image up to date (see [`.github/dependabot.yml`](.github/dependabot.yml)).

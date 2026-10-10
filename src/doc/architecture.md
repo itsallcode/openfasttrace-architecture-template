@@ -22,7 +22,7 @@
 
 > OFT: For large chapters like the "Runtime" we recommend splitting the chapter in subsections that you keep in folder named after the chapter.
 
-> OFT: Glossary and bibliography do not get sub-folders since they usually do not grow to a size where they need to be split down further. Also this makes generating and referencing them easier. 
+> OFT: Glossary and bibliography do not get sub-folders since they usually do not grow to a size where they need to be split down further. Also this makes generating and referencing them easier.
 
 1. [Introduction](introduction.md)
 2. [Context](context.md)

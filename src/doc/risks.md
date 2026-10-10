@@ -34,6 +34,7 @@ Risks are often the direct consequence of constraints, so please check the chapt
 ## Security Risks
 
 ### Unpatched HTTP Client Vulnerabilities
+
 `archrisk~ayb.unpatched-http-client-vulnerabilities`
 
 The guaranteed time-to-fix for known vulnerabilities in the Wriggly Wombat Soft HTTP client we are using in the [MachineApplication](components/MachineApplication.md) is two weeks counted from the day a vulnerability is first reported. Worst case this means that our product suffers from an unpatched vulnerability for the whole two weeks.
@@ -45,7 +46,7 @@ The guaranteed time-to-fix for known vulnerabilities in the Wriggly Wombat Soft 
 Consequences:
 
 * Depending on the severity of the vulnerability consequences range from remote Denial-of-Service (DoS) over data leakage to remote infection of the AutoYummyBox with malicious code.
-* Since the HTTP client is also an integral part of the [CreditCardReader](components/CreditCardReader.md) the worst thing that could happen is leakage of our customers' credit card information. 
+* Since the HTTP client is also an integral part of the [CreditCardReader](components/CreditCardReader.md) the worst thing that could happen is leakage of our customers' credit card information.
 
 The following mitigations are possible:
 
@@ -63,7 +64,7 @@ The following mitigations are possible:
    We will do this as a last resort for critical vulnerabilities if we come to the conclusion that the security risk can be mitigated with reasonable effort.
    Also keep in mind that workarounds often create new attack surfaces.
    We have no chance to compartmentalize the vulnerability inside of the CreditCardReader.
-   
+
 Comment:
 
 This risk was accepted by project management on 2018-03-02.

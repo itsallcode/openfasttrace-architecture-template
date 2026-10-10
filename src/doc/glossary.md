@@ -19,7 +19,7 @@ Food vending machine with an internal 3D printer that creates dishes from [paste
 
 ### Container Distribution Center
 
-*Container Distributions Centers* keep a small stock of [paste containers](#paste-container). Machine Maintainers pick the container up there and deliver them to the individual [AutoYummyBoxes](#autoyummybox). 
+*Container Distributions Centers* keep a small stock of [paste containers](#paste-container). Machine Maintainers pick the container up there and deliver them to the individual [AutoYummyBoxes](#autoyummybox).
 
 ## P
 

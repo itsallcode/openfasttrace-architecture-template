@@ -1,0 +1,15 @@
+# Configuration for markdownlint (https://github.com/DavidAnson/markdownlint)
+default: true
+
+# Long lines are fine: the specification is written one sentence per line
+MD013: false
+
+# Consecutive "> OFT:" hints are intentionally separate blockquotes
+MD028: false
+
+# Pandoc needs a little inline HTML (e.g., <div> wrappers for figures)
+MD033:
+  allowed_elements: ['a', 'div', 'figure', 'figcaption', 'img', 'kbd', 'p', 'span']
+
+# Specification files start with a license header comment, and sub-chapters start with h2
+MD041: false

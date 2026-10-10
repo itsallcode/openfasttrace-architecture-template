@@ -32,6 +32,7 @@ The diagram below shows how the AutoYummyBoxes, the backend and the external bac
 > OFT: Note that only the network boundary that the project is responsible for is depicted here. While we can assume that for example the credit card institutes have their own data centers, the exact deployment does not matter here, since we cannot influence it anyway. For the project it is just an external System connected via the Internet.
 
 ## AutoYummyBox Redundant Network Connections
+
 `arch~ayb.box.redundant-network-connections~1`
 
 Each AutoYummyBox has an Internet connection via at least two distinct modems and network providers (e.g. DSL via network provider A and 3G via network provider B).
@@ -43,6 +44,7 @@ Covers:
 Needs: dsn
 
 ## AutoYummyBox Backend Connection
+
 `arch~ayb.backend-connection~1`
 
 Each AutoYummyBox has a network route to at least one AutoYummyBox Backend.
@@ -64,6 +66,7 @@ Needs: dsn
 > OFT: This is a typical example of a situation where documenting a decision in the architecture is a good idea. You made an important design decision based on the user requirement. It saves costs while sacrificing the availability of the backend connection, depending on offline capabilities instead.
 
 ## AutoYummyBox Credit Card Provider Connection
+
 `arch~ayb.box-credit-card-provider-connection~1`
 
 Each AutoYummyBox has network routes to at least two distinct backends of credit card institutes.

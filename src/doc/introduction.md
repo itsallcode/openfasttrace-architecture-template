@@ -23,7 +23,7 @@ Check [System Scope and Context](context.md) for an overview of the systems conn
 
 ### Target Audience
 
-The target audience are persons involved with the construction of the system, technical decisions and quality assurance. See section ["Stakeholders"](#stakeholders) for more details. 
+The target audience are persons involved with the construction of the system, technical decisions and quality assurance. See section ["Stakeholders"](#stakeholders) for more details.
 
 ### Notational Conventions
 
@@ -93,7 +93,7 @@ This section list the target audience of the system architecture and their inter
 
 > OFT: While knowing them and their motivations and responsibilities is certainly a good idea, we from itsallcode.org recommend that you keep contact information in a separate document and only reference it here. The reason for this is that in any non-trivial project organizations have a radically different life cycle than architecture documents and it is inconvenient and error-prone to keep a copy of your organizational structure in this document.
 
-> OFT: Hint: always use plural when referring to roles. This keeps your specifications gender-neutral especially when using pronouns. 
+> OFT: Hint: always use plural when referring to roles. This keeps your specifications gender-neutral especially when using pronouns.
 
 For a list of OFTAutoYummi's stakeholder contacts and their responsibilities please refer to the [OAY-ORGA](../bibilography.md#oay-orga).
 
@@ -101,7 +101,7 @@ For a list of OFTAutoYummi's stakeholder contacts and their responsibilities ple
 
 ### Software Developers
 
-The main audience for this software architecture are persons responsible for the design and implementation of the [building blocks](building_block_view.md). They have to base their detailed designs on the requirements stated in this document. 
+The main audience for this software architecture are persons responsible for the design and implementation of the [building blocks](building_block_view.md). They have to base their detailed designs on the requirements stated in this document.
 
 Recommended reading:
 
@@ -116,7 +116,7 @@ Recommended reading:
 
 ### Project Managers
 
-While project managers will usually not dive into the technical details of the system architecture, they still need to at least know the general 
+While project managers will usually not dive into the technical details of the system architecture, they still need to at least know the general
 
 Recommended reading:
 
