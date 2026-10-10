@@ -34,9 +34,10 @@ Risks are often the direct consequence of constraints, so please check the chapt
 ## Security Risks
 
 ### Unpatched HTTP Client Vulnerabilities
+
 `archrisk~ayb.unpatched-http-client-vulnerabilities`
 
-The guaranteed time-to-fix for known vulnerabilities in the Wriggly Wombat Soft HTTP client we are using in the [MachineApplication](components/MachineApplication.md) is two weeks counted from the day a vulnerability is first reported. Worst case this means that our product suffers from an unpatched vulnerability for the whole two weeks.
+The guaranteed time-to-fix for known vulnerabilities in the Wriggly Wombat Soft HTTP client we are using in the [MachineApplication](building_block_view/MachineApplication.md) is two weeks counted from the day a vulnerability is first reported. Worst case this means that our product suffers from an unpatched vulnerability for the whole two weeks.
 
 > OFT: This admittedly constructed example demonstrates why project members in general and project management in particular tend to avoid thinking too much about risks. This risk is a potential show-stopper for the whole product. As a professional architect you have to make the risk transparent. Project management needs to calculate and decide whether it is in total cheaper to accept the risk with all consequences or to spend time, effort and money to mitigate or remove it.
 
@@ -45,7 +46,7 @@ The guaranteed time-to-fix for known vulnerabilities in the Wriggly Wombat Soft 
 Consequences:
 
 * Depending on the severity of the vulnerability consequences range from remote Denial-of-Service (DoS) over data leakage to remote infection of the AutoYummyBox with malicious code.
-* Since the HTTP client is also an integral part of the [CreditCardReader](components/CreditCardReader.md) the worst thing that could happen is leakage of our customers' credit card information. 
+* Since the HTTP client is also an integral part of the [CreditCardReader](building_block_view/MachineApplication.md) the worst thing that could happen is leakage of our customers' credit card information.
 
 The following mitigations are possible:
 
@@ -55,7 +56,7 @@ The following mitigations are possible:
 
 1. Offer a patch (case-by-case)
 
-   We have the source code but we are neither allowed nor able to exchange the HTTP client in the [CreditCardReader](components/CreditCardReader.md).
+   We have the source code but we are neither allowed nor able to exchange the HTTP client in the [CreditCardReader](building_block_view/MachineApplication.md).
    Also it is questionable whether we are faster to create a patch than the original maker of the HTTP client.
 
 1. Compartmentalize the vulnerability in our components (case-by-case)
@@ -63,7 +64,7 @@ The following mitigations are possible:
    We will do this as a last resort for critical vulnerabilities if we come to the conclusion that the security risk can be mitigated with reasonable effort.
    Also keep in mind that workarounds often create new attack surfaces.
    We have no chance to compartmentalize the vulnerability inside of the CreditCardReader.
-   
+
 Comment:
 
 This risk was accepted by project management on 2018-03-02.

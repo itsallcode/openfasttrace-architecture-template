@@ -47,7 +47,7 @@ The associations between the components represent "A-knows-B" relationships. Thi
 
 Circular dependencies would create unacceptable constraints on the development life cycle and deployment of the components.
 
-Since the circle has no start, there is no component that you could deploy first without creating a broken dependency for at least a short time. This means that you have to release and deploy all components at the same time which is bound to fail.   
+Since the circle has no start, there is no component that you could deploy first without creating a broken dependency for at least a short time. This means that you have to release and deploy all components at the same time which is bound to fail.
 
 ## Building Block Overview
 
@@ -61,9 +61,10 @@ This section contains the building block breakdown on the highest level.
 
 > OFT: If you want to make sure the components you define in this architecture appear in the actual detailed designs (and in the implementations) we recommend that you create one specification item for each internal component and require coverage on detailed design level (here `dsn`). Of course you should talk the component breakdown through with the implementing teams in order to get their agreement. Otherwise you will end up with a nice architecture document that nobody cares about.
 
-> OFT: We use tags in the specification items to allow filtering. This helps splitting the workload between multiple development teams since each team can define tag filters to check coverage for the components they are responsible for. Check the [OFT User Guide](https://github.com/itsallcode/openfasttrace/blob/master/doc/user_guide.md) to learn more about tag filters.
+> OFT: We use tags in the specification items to allow filtering. This helps splitting the workload between multiple development teams since each team can define tag filters to check coverage for the components they are responsible for. Check the [OFT User Guide](https://github.com/itsallcode/openfasttrace/blob/main/doc/user_guide/user_guide.md) to learn more about tag filters.
 
 ### AutoYummyBox
+
 `arch~ayb.autoyummybox~1`
 
 This hardware component is a vending machine with a built-in 3D food printer. It is responsible for printing and cooking the dishes.
@@ -75,6 +76,7 @@ Tags: AutoYummyBox
 > OFT: Note that we did not cover an SRS requirement with this component decision. The reason is simple: you would have to link each SRS requirement that is implemented in this component with the component in addition to the runtime requirements. This is way to error-prone to be practical and also not very helpful.
 
 ### MachineApplication
+
 `arch~ayb.machine-application~1`
 
 The MachineApplication is an embedded software that controls the operation of the [AutoYummyBox](#autoyummybox) hardware and communicates with the [MachineManager](#machinemanager) backend.
@@ -84,6 +86,7 @@ Needs: arch
 Tags: MachineApplication
 
 ### MachineManager
+
 `arch~ayb.machinemanager~1`
 
 The MachineManager is a backend component that serves as a single entry point for all communication with the [MachineApplication](#machineapplication).

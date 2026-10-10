@@ -17,17 +17,17 @@
 
 ## Specifications
 
-* <a name="srs"></a>SRS: "OFTAutoYummi - System Requirement Specification", *S. Baer, Chr. Pirkl*, 2018, [itsallcode.org](http://itsallcode.org)
+* <a name="srs"></a>SRS: "OFTAutoYummi - System Requirement Specification", *S. Baer, Chr. Pirkl*, 2018, [itsallcode.org](https://github.com/itsallcode)
 
 ## Standards
 
 > OFT: List here any standards that you refer to in your documents. For example IETF RFCs or ISO standards.
 
-* <a name="rfc2119"></a> "[RFC 2119: Key words for use in RFCs to Indicate Requirement Levels](https://tools.ietf.org/html/rfc2119)", *S. Brander*, 1997, Harvard Univerity
+* <a name="rfc2119"></a> "[RFC 2119: Key words for use in RFCs to Indicate Requirement Levels](https://tools.ietf.org/html/rfc2119)", *S. Brander*, 1997, Harvard University
 
 ## Documents
 
-* <a name="acgl"></a>ASGL: "Logging Guideline", *J. Weng, M. Liu"*, 2017
+* <a name="asgl"></a>ASGL: "Logging Guideline", *J. Weng, M. Liu"*, 2017
 * <a name="oay-orga"></a>OAY-ORGA: "OFTAutoYummi Organization", *J. Doe*, 2018
 * <a name="lgl"></a>LGL: "Logging Guideline", *M. Mustermann"*, 2017
 * <a name="mgl"></a>MGL: "Monitoring Guideline", *L. Smith"*, 2017

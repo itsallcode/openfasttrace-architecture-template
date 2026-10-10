@@ -19,16 +19,16 @@ This chapter describes the system behavior at runtime.
 
 > OFT: Since the sections in this chapter tend to get quite large we also recommend that you split up the chapter into separate files, one for each feature.
 
-> OFT: When designing features keep in mind that there should be not more that fit on a single page product sheet &mdash; after you subtracted the space for images and general product description. As a rule of thumb three to ten top-level features are a good number. 
+> OFT: When designing features keep in mind that there should be not more that fit on a single page product sheet &mdash; after you subtracted the space for images and general product description. As a rule of thumb three to ten top-level features are a good number.
 
-* [Ordering Dishes](runtime/ordering_dishes.md)
-* [Preparing Dishes](runtime/preparing_dishes.md)
-* [Paying With Credit Card](runtime/paying_with_credit_card.md)
+* [Ordering Dishes](runtime_view/ordering_dishes.md)
+* [Preparing Dishes](runtime_view/preparing_dishes.md)
+* [Paying With Credit Card](runtime_view/paying_with_credit_card.md)
 * Paying With VirtuCoinBuddy
 * Cleaning AutoYummyBoxes
 * Keeping the boxes well-stocked
 * Monitoring the boxes
-* ... 
+* ...
 
 > OFT: We stop the feature enumeration at this point, since we are sure you got the concept.
 

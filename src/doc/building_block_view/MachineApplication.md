@@ -23,7 +23,7 @@ This section contains the internal component breakdown of the MachineApplication
 
 The breakdown is kept rough intentionally to avoid excessive information duplication with the detailed design documents.
 
-![MachineApplication composition](uml/component/comp_machine_application.svg "MachineApplication composition")
+![MachineApplication composition](../uml/component/comp_machine_application.svg "MachineApplication composition")
 
 > OFT: The main purpose of the above diagram in the context of this architecture example is to demonstrate a variety of component and package relationships. Explaining the structure of the product is one of if not the most important job of a architecture.
 
@@ -33,33 +33,35 @@ In case of the paste containers this is due to the fact that the companies provi
 
 > OFT: Look at the component diagram. You can see from the package structure that the interface is owned internally. This is the structure of choice if you want to create a plug-in architecture.
 
-The CreditCardReader is a self-sufficient standard component that only requires an external HttpClient. See ["Which Embedded HTTP Client do we use?"](../design_decisions.md#which-embedded-http-client-do-we-use) in the ["Design Decisions"](../design_decision.md) chapter for details about how this influences the architecture of the backend connection.
+The CreditCardReader is a self-sufficient standard component that only requires an external HttpClient. See ["Which Embedded HTTP Client do we use?"](../design_decisions.md#which-embedded-http-client-do-we-use) in the ["Design Decisions"](../design_decisions.md) chapter for details about how this influences the architecture of the backend connection.
 
 > OFT: Some design decisions are a constant source of discussion. We intentionally picked the HTTP client as an example since from our experience this topic always ignites heated debates in the embedded world.
 
 > OFT: This also gives us the opportunity to demonstrate what you should do if you don't own an interface you depend on. Of course an external HTTP client brings its own interface, but we have the MachineBackendConnector component in place where adapt if necessary. Same is true for the CreditCardConnector and PaymentHanlder.
 
 #### PasteContainer
+
 `arch~ayb.pastecontainer~1`
 
 A PasteCoPaymentHandlerardware component that contains one of the pastes that serve as raw material for the dishes AutoYummiBox serves. It has a controller built in that can identify the contents and fill grade.
 
 Comments:
 
-While the specification for the paste containers physical outside dimensions as well as the electrical and software interface are owned by the AutoYummiBox project, the containers themselves are designed and manufactured by external suppliers. 
+While the specification for the paste containers physical outside dimensions as well as the electrical and software interface are owned by the AutoYummiBox project, the containers themselves are designed and manufactured by external suppliers.
 
 Needs: dsn
 
 Tags: PasteContainer
 
 #### FoodPrinter
+
 `arch~ayb.foodprinter~1`
 
-The FoodPrinter is a hardware component that is feed with [pastes](glossary.md#paste) and prints a dish out of them.
+The FoodPrinter is a hardware component that is feed with [pastes](../glossary.md#paste) and prints a dish out of them.
 
 Comments:
 
-The FoodPrinter is designed and produced by the hardware department of AutoYummiBox. 
+The FoodPrinter is designed and produced by the hardware department of AutoYummiBox.
 
 Needs: dsn
 

@@ -17,7 +17,7 @@
 
 > OFT: What remains are mainly scenarios that hint tests from a technical perspective (like performance tests and their technical setup) and scenarios you want the designers of the components to cover.
 
-> OFT: You could argue to remove the chapter altogether from the SwAD and only cover it in the SRS. In the arc42 template the lines between user-level specification and system architecture are sometimes blurry though. 
+> OFT: You could argue to remove the chapter altogether from the SwAD and only cover it in the SRS. In the arc42 template the lines between user-level specification and system architecture are sometimes blurry though.
 
 > OFT: arc42 suggests to organize quality scenarios as leafs in a quality tree.
 
@@ -48,6 +48,7 @@
 > OFT: Now let make a scenario for the SwAD in as a contrast.
 
 #### Maximum Dish List Download Duration
+
 `arch~ayb.maximum-dish-list-download-duration~1`
 
 Measured with a network connection of at least 1 MBit effective throughput and an end-to-end latency of no longer than 10 ms, the Cook component takes a maximum of 10 seconds to download the complete dish list including recipes from the CookingBook component in at least 95% of all cases.

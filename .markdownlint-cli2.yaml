@@ -1,0 +1,5 @@
+# Options for markdownlint-cli2, the rule configuration is in .markdownlint.yml
+ignores:
+  - "node_modules/**"
+  # Vale style packages downloaded by "vale sync"
+  - ".github/styles/**"

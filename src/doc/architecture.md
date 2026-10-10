@@ -12,7 +12,7 @@
 > OFT: In this system architecture template we are discussing the design of a fictional product "OFTAutoYummy" that synthesizes meals from raw materials and is basically a 3D printer for ready-made food.
   The example is intended to demonstrate architectural considerations of a project that has both hardware and software parts.
   
-> OFT: The structure of the architectural template is based on the arc42 template ([arc42.org](https://arc42.org)) by Dr. Gernot Starke and Dr. Peter Hruschka. Both, the arc42 template and this template are licensed under the [Creative-Commons-BY-SA license](../LICENSE.txt).
+> OFT: The structure of the architectural template is based on the arc42 template ([arc42.org](https://arc42.org)) by Dr. Gernot Starke and Dr. Peter Hruschka. Both, the arc42 template and this template are licensed under the [Creative-Commons-BY-SA license](../../LICENSE.txt).
 
 > OFT: In order to allow for requirement tracing, the template uses the "Requirement-enhanced Markdown format" defined by the [OpenFastTrace](https://github.com/itsallcode/openfasttrace) project. The examples and additions also come from this project.
   
@@ -22,7 +22,7 @@
 
 > OFT: For large chapters like the "Runtime" we recommend splitting the chapter in subsections that you keep in folder named after the chapter.
 
-> OFT: Glossary and bibliography do not get sub-folders since they usually do not grow to a size where they need to be split down further. Also this makes generating and referencing them easier. 
+> OFT: Glossary and bibliography do not get sub-folders since they usually do not grow to a size where they need to be split down further. Also this makes generating and referencing them easier.
 
 1. [Introduction](introduction.md)
 2. [Context](context.md)
@@ -31,7 +31,7 @@
 5. [Building blocks](building_block_view.md)
 6. [Runtime](runtime_view.md)
 7. [Deployment](deployment_view.md)
-8. [Cross-cutting Concerns](concerns.md)
+8. [Cross-cutting Concerns](concepts.md)
 9. [Design Decisions](design_decisions.md)
 10. [Quality Scenarios](quality_scenarios.md)
 11. [Risks](risks.md)

@@ -4,14 +4,15 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.itsallcode</groupId>
   <artifactId>openfasttrace-architecture-template</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
   <scm>
     <url>https://github.com/itsallcode/openfasttrace-architecture-template.git</url>
     <developerConnection>itsallcode.org</developerConnection>
   </scm>
-  <url>https://github.com/itsallcode/openfasttrace</url>
+  <url>https://github.com/itsallcode/openfasttrace-architecture-template</url>
   <name>OpenFastTrace Architecture Template</name>
-  <description>Free software requirement tracing suite</description>
+  <description>Template for system and software architecture documents done with OpenFastTrace</description>
   <properties>
     <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
     <spec.version>${project.version}</spec.version>
@@ -21,7 +22,7 @@
       Design</spec.title>
     <spec.authors>S. Bär, M. Thielcke</spec.authors>
     <spec.filename>SwAD-AutoYummiBox</spec.filename>
-    <spec.files>architecture.md introduction.md context.md
+    <spec.files>architecture.md introduction.md context.md constraints.md
       solution_strategy.md building_block_view.md
       building_block_view/MachineApplication.md runtime_view.md
       runtime_view/ordering_dishes.md
@@ -35,10 +36,10 @@
     <spec.source.directory>${project.basedir}/src/doc</spec.source.directory>
     <spec.source.css.directory>${spec.source.directory}/css</spec.source.css.directory>
     <spec.model.directory>${project.basedir}/src/uml</spec.model.directory>
+    <!-- Rendered diagrams live next to the Markdown sources, so that they also show up on GitHub -->
+    <spec.build.uml.directory>${spec.source.directory}/uml</spec.build.uml.directory>
     <spec.build.html.directory>${project.build.directory}</spec.build.html.directory>
     <spec.build.pdf.directory>${project.build.directory}</spec.build.pdf.directory>
-    <spec.build.uml.directory>${project.build.directory}/uml</spec.build.uml.directory>
-    <spec.build.css.directory>${project.build.directory}/css</spec.build.css.directory>
     <spec.file.html>${spec.build.html.directory}/${spec.filename}.html</spec.file.html>
     <spec.file.pdf>${spec.build.pdf.directory}/${spec.filename}.pdf</spec.file.pdf>
     <lua.source.directory>${project.basedir}/src/main/lua</lua.source.directory>
@@ -46,23 +47,24 @@
   <build>
     <plugins>
       <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.3.1</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>3.6.3</version>
         <executions>
           <execution>
-            <id>copy-resources</id>
-            <phase>process-resources</phase>
+            <id>enforce-versions</id>
             <goals>
-              <goal>copy-resources</goal>
+              <goal>enforce</goal>
             </goals>
             <configuration>
-              <outputDirectory>${spec.build.css.directory}</outputDirectory>
-              <resources>
-                <resource>
-                  <directory>${spec.source.css.directory}</directory>
-                  <filtering>true</filtering>
-                </resource>
-              </resources>
+              <rules>
+                <requireMavenVersion>
+                  <version>3.8.1</version>
+                </requireMavenVersion>
+                <requireJavaVersion>
+                  <version>17</version>
+                </requireJavaVersion>
+              </rules>
             </configuration>
           </execution>
         </executions>
@@ -70,11 +72,11 @@
       <plugin>
         <groupId>com.github.davidmoten</groupId>
         <artifactId>plantuml-maven-plugin</artifactId>
-        <version>0.2.9</version>
+        <version>0.2.15</version>
         <executions>
           <execution>
             <id>plantuml</id>
-            <phase>process-resources</phase>
+            <phase>generate-resources</phase>
             <goals>
               <goal>generate</goal>
             </goals>
@@ -92,20 +94,21 @@
           </formats>
           <outputDirectory>${spec.build.uml.directory}</outputDirectory>
           <preserveDirectoryStructure>true</preserveDirectoryStructure>
+          <generateMarkdownIndex>false</generateMarkdownIndex>
         </configuration>
         <dependencies>
           <dependency>
             <groupId>net.sourceforge.plantuml</groupId>
             <artifactId>plantuml</artifactId>
-            <version>1.2026.0</version>
+            <version>1.2026.8</version>
           </dependency>
         </dependencies>
       </plugin>
       <plugin>
-        <!-- See http://www.mojohaus.org/license-maven-plugin/examples/example-add-license.html -->
+        <!-- See https://www.mojohaus.org/license-maven-plugin/examples/example-add-license.html -->
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>license-maven-plugin</artifactId>
-        <version>2.3.0</version>
+        <version>2.7.1</version>
         <configuration>
           <verbose>false</verbose>
           <detail>true</detail>
@@ -152,7 +155,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.6.0</version>
+        <version>3.8.0</version>
         <configuration>
           <descriptors>
             <descriptor>${project.basedir}/src/assembly/htmldoc.xml</descriptor>
@@ -179,7 +182,7 @@
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
-            <version>3.1.1</version>
+            <version>3.6.4</version>
             <executions>
               <execution>
                 <id>pandoc-pdf</id>
@@ -189,10 +192,11 @@
                   <workingDirectory>${spec.source.directory}</workingDirectory>
                   <commandlineArgs>--from=markdown
                     --to=latex
+                    --pdf-engine=lualatex
                     --standalone
                     --toc
                     --number-sections
-                    --lua-filter=${lua.source.directory}/pdf_image_path_converter.lua
+                    --lua-filter=${lua.source.directory}/image_path_converter.lua
                     --strip-comments
                     --output=${spec.file.pdf}
                     --metadata=title:"${spec.title}"
@@ -219,7 +223,7 @@
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
-            <version>1.6.0</version>
+            <version>3.6.4</version>
             <executions>
               <execution>
                 <id>pandoc</id>
@@ -227,14 +231,18 @@
                 <configuration>
                   <executable>pandoc</executable>
                   <workingDirectory>${spec.source.directory}</workingDirectory>
+                  <!-- "embed-resources" inlines the CSS and the SVG diagrams, so the HTML file is self-contained -->
                   <commandlineArgs>--from=markdown
                     --to=html5
                     --standalone
+                    --embed-resources
                     --toc
                     --number-sections
                     --css=${spec.source.css.directory}/spec.css
                     --lua-filter=${lua.source.directory}/link_converter.lua
-                    --strip-comments --output=${spec.file.html}
+                    --lua-filter=${lua.source.directory}/image_path_converter.lua
+                    --strip-comments
+                    --output=${spec.file.html}
                     --metadata=title:"${spec.title}"
                     --metadata=date:"${spec.date}"
                     --metadata=author:"${spec.authors}"
@@ -243,26 +251,6 @@
                 <goals>
                   <goal>exec</goal>
                 </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-enforcer-plugin</artifactId>
-            <version>3.4.1</version>
-            <executions>
-              <execution>
-                <id>enforce-maven</id>
-                <goals>
-                  <goal>enforce</goal>
-                </goals>
-                <configuration>
-                  <rules>
-                    <requireMavenVersion>
-                      <version>3.6.3</version>
-                    </requireMavenVersion>
-                  </rules>
-                </configuration>
               </execution>
             </executions>
           </plugin>
